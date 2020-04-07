@@ -38,7 +38,7 @@
         <p>More Information</p>
         <div class="mouse"></div>
       </div>
-      <img class="banner-bg" src="../assets/bau.jpg" alt srcset />
+      <img ref="bannerBg" class="banner-bg" src="../assets/bau.jpg" alt srcset />
     </div>
   </div>
 </template>
@@ -59,21 +59,28 @@ export default {
       this.$refs.collage.innerText += this.collage.split("")[index];
       if (this.$refs.collage.innerText.length > this.collage.length - 1) {
         document.querySelector("header").classList += " top-0";
-        this.$refs.moreInfo.classList += " bottom-50";
+        this.$refs.moreInfo.classList += " bottom-10";
         clearInterval(a);
       }
       index++;
     }, 200);
+    setTimeout(() => {
+      this.$refs.bannerBg.classList += " active";
+    }, 1000);
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+#mainBanner {
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
 .indicator {
   position: absolute;
-  font-family: "Fredoka One", cursive;
   top: 170px;
   right: 92px;
   font-size: 25px;
@@ -194,13 +201,19 @@ export default {
   width: 0.3em;
 }
 
-.metal:active {
+.metal:hover {
+  cursor: pointer;
   color: #bada55;
   text-shadow: #bada55 0 -1px 0, #bada55 0 2px 1px, #bada55 0 0 5px,
     #bada55 0 0 20px;
   box-shadow: inset #bada55 0 0 0 4px, inset #bada55 0 -1px 5px 4px,
     inset #bada55 0 -1px 0 1px, inset #bada55 0 2px 1px 1px, #bada55 0 0 2px 1px,
     #bada55 0 -5px 2px 1px, #bada55 0 1px 2px 1px;
+  transition: all 0.7s ease;
+}
+.metal:active {
+  text-shadow: none;
+  box-shadow: none;
 }
 
 .banner {
@@ -208,7 +221,7 @@ export default {
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.67);
   background-image: linear-gradient(
     245deg,
     #592ef5 20%,
@@ -226,7 +239,7 @@ export default {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: linear-gradient(120deg, transparent 40%, white 71% 100%);
+    background: linear-gradient(50deg, transparent 60%, white 80% 100%);
   }
   .title {
     max-width: 70%;
@@ -242,12 +255,21 @@ export default {
       opacity: 0;
       font-size: 45px;
       color: #bada55;
-      margin-top: 100px;
+      margin-top: 70px;
       animation: init 1s ease-in 5s 1 forwards;
+
+      &:first-of-type {
+        margin-left: -70px;
+        animation: initLeft 0.7s ease-in 4.5s 1 forwards;
+      }
+      &:last-of-type {
+        font-family: "Overlock", cursive;
+      }
     }
   }
 }
 .more-info {
+  font-family: "Overlock", cursive;
   position: absolute;
   display: flex;
   align-items: center;
@@ -277,16 +299,15 @@ export default {
       animation: mousesc 1.3s infinite;
     }
   }
-  &.bottom-50 {
-    bottom: 50px;
+  &.bottom-10 {
+    bottom: 10px;
   }
 }
 header {
+  font-family: "Overlock", cursive;
   z-index: 2;
-  position: fixed;
+  position: absolute;
   width: 100%;
-  height: 25%;
-  font-family: "Fredoka One", cursive;
   top: -100px;
   text-shadow: 4px 10px 20px rgba(0, 0, 0, 0.2);
   transition: top 0.4s cubic-bezier(0.075, -0.82, 0.165, 1);
@@ -297,7 +318,7 @@ header {
     align-items: center;
     justify-content: flex-start;
     li {
-      margin: 20px 50px;
+      margin: 20px 20px;
       a {
         padding: 20px 50px;
         position: relative;
@@ -328,10 +349,17 @@ header {
 }
 .banner-bg {
   position: absolute;
-  max-width: 90%;
+  max-width: 100%;
   height: 100%;
   bottom: 0;
+  opacity: 0;
+  bottom: -100vh;
   z-index: -1;
+  transition: opacity 1s ease, bottom 0.6s ease-in;
+  &.active {
+    bottom: 0;
+    opacity: 0.6;
+  }
 }
 @keyframes init {
   80% {
@@ -339,6 +367,16 @@ header {
   }
   to {
     margin-top: 0;
+    opacity: 1;
+  }
+}
+@keyframes initLeft {
+  80% {
+    opacity: 0.8;
+  }
+  to {
+    margin-top: 0;
+    margin-left: 0;
     opacity: 1;
   }
 }
