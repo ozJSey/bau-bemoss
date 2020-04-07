@@ -3,6 +3,8 @@
     <mainBanner />
     <features />
     <useful />
+    <neumorphic />
+    <footer />
   </div>
 </template>
 
@@ -12,13 +14,15 @@ import mainBanner from "@/components/mainBanner.vue";
 import features from "@/components/features.vue";
 import useful from "@/components/useful.vue";
 import neumorphic from "@/components/neumorphic.vue";
+import sitefooter from "@/components/sitefooter.vue";
 export default {
   name: "Home",
   components: {
     mainBanner,
     features,
     useful,
-    neumorphic
+    neumorphic,
+    sitefooter
   }
 };
 </script>
