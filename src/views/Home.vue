@@ -4,7 +4,7 @@
     <features />
     <useful />
     <neumorphic />
-    <footer />
+    <sitefooter />
   </div>
 </template>
 

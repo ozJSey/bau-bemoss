@@ -136,6 +136,11 @@ export default {
       font-family: "Fredoka One", cursive;
       color: #6200ff;
       font-size: 22px;
+      margin: 0;
+      & + img {
+        max-width: 100%;
+        height: auto;
+      }
     }
     .content-wrapper {
       padding: 100px;
@@ -156,6 +161,8 @@ export default {
 
           > div {
             margin: 20px;
+            vertical-align: top;
+            align-self: flex-start;
             text-align: center;
             width: calc(50% - 40px);
           }

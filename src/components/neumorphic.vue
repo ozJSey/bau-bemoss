@@ -49,7 +49,7 @@ export default {
         perView: 3,
         animationDuration: 400,
         gap: 50,
-        peek: 0,
+        peek: 50,
         autoplay: 5000,
         type: "carousel"
       }
@@ -101,8 +101,8 @@ export default {
   background-color: #ebecf0;
   .neum-wrapper {
     .neum {
+      margin: 90px 0 20px;
       padding: 20px;
-      margin: 30px;
       border-radius: 20px;
       background-color: #ebecf0;
       box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15),

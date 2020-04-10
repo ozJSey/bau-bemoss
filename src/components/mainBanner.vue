@@ -31,9 +31,9 @@
           <font-awesome-icon icon="arrow-down" />
         </span>
       </span>
-      <button class="metal radial">
+      <router-link to="webapp" class="metal radial">
         <font-awesome-icon icon="power-off" />
-      </button>
+      </router-link>
       <div ref="moreInfo" class="more-info">
         <p>More Information</p>
         <div class="mouse"></div>
