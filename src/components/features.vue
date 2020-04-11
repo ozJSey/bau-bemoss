@@ -19,7 +19,7 @@
           <img src="../assets/opensrc_2.png" alt />
         </vue-glide-slide>
         <vue-glide-slide class="feature-card">
-          <h3>Interoperability</h3>
+          <h3>Interoperability &nbsp;</h3>
           <p>BEMOSS™ is designed to work with load control devices form different manufacturers that operate on different communication technologies and data exchange protocols. These include both new commercially available products that operate on Ethernet and Wi-Fi, as well as legacy devices that operate on serial communications using Modbus RTU and BACnet MS/TP protocols.</p>
           <img src="../assets/interoperability.png" alt srcset />
         </vue-glide-slide>
