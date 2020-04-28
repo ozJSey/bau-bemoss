@@ -1,5 +1,20 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <appHeader />
+    <appSidebar />
   </div>
 </template>
+
+<script>
+import appHeader from "@/webapp-comp/appHeader.vue";
+import appSidebar from "@/webapp-comp/appSidebar.vue";
+export default {
+  components: {
+    appHeader,
+    appSidebar
+  }
+};
+</script>
+
+<style lang="scss">
+</style>

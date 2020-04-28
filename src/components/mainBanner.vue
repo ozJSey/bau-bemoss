@@ -55,18 +55,20 @@ export default {
   },
   mounted() {
     let index = 0;
-    var a = setInterval(() => {
-      this.$refs.collage.innerText += this.collage.split("")[index];
-      if (this.$refs.collage.innerText.length > this.collage.length - 1) {
-        document.querySelector("header").classList += " top-0";
-        this.$refs.moreInfo.classList += " bottom-10";
-        clearInterval(a);
-      }
-      index++;
-    }, 200);
-    setTimeout(() => {
-      this.$refs.bannerBg.classList += " active";
-    }, 1000);
+    window.onload = () => {
+      var a = setInterval(() => {
+        this.$refs.collage.innerText += this.collage.split("")[index];
+        if (this.$refs.collage.innerText.length > this.collage.length - 1) {
+          document.querySelector("header").classList += " top-0";
+          this.$refs.moreInfo.classList += " bottom-10";
+          clearInterval(a);
+        }
+        index++;
+      }, 200);
+      setTimeout(() => {
+        this.$refs.bannerBg.classList += " active";
+      }, 1000);
+    };
   }
 };
 </script>

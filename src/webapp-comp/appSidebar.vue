@@ -1,0 +1,215 @@
+<template>
+  <aside>
+    <div class="logo">
+      <h1> bau<em>Bemoss</em></h1>
+    </div>
+    <button
+      @click="shrink"
+      class="expander"
+    >
+      <font-awesome-icon icon="align-right"></font-awesome-icon>
+    </button>
+    <nav class="side-menu">
+      <ul>
+        <li>
+          <transition name="slide-fade">
+            <div v-if="!collapsed">
+              Home
+            </div>
+            <font-awesome-icon
+              v-else
+              class="icons"
+              icon="home"
+            ></font-awesome-icon>
+          </transition>
+        </li>
+        <li>
+          <transition name="slide-fade">
+            <div v-if="!collapsed">
+              Discover New Devices
+            </div>
+            <span
+              v-else
+              class="plus"
+            >
+              +
+            </span>
+          </transition>
+        </li>
+        <li>
+          <transition name="slide-fade">
+            <div v-if="!collapsed">
+              Network Status
+            </div>
+            <font-awesome-icon
+              v-else
+              class="icons"
+              icon="wifi"
+            ></font-awesome-icon>
+          </transition>
+        </li>
+        <li>
+          <transition name="slide-fade">
+            <div v-if="!collapsed">
+              Alarms &amp; Notifications </div>
+            <font-awesome-icon
+              v-else
+              class="icons"
+              icon="bell"
+            ></font-awesome-icon>
+          </transition>
+        </li>
+        <li>
+          <transition name="slide-fade">
+            <div v-if="!collapsed">
+              Manage Users </div>
+            <font-awesome-icon
+              v-else
+              class="icons"
+              icon="user"
+            ></font-awesome-icon>
+          </transition>
+        </li>
+        <li>
+          <transition name="slide-fade">
+            <div v-if="!collapsed">
+              Misc Settings </div>
+            <font-awesome-icon
+              v-else
+              class="icons"
+              icon="cog"
+            ></font-awesome-icon>
+          </transition>
+        </li>
+        <li>
+          <transition name="slide-fade">
+            <div v-if="!collapsed">
+              Applications
+            </div>
+            <font-awesome-icon
+              v-else
+              class="icons"
+              icon="boxes"
+            ></font-awesome-icon>
+          </transition>
+        </li>
+        <li>
+          <transition name="slide-fade">
+            <div v-if="!collapsed">
+              Logout
+            </div>
+            <font-awesome-icon
+              v-else
+              class="icons"
+              icon="power-off"
+            ></font-awesome-icon>
+          </transition>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    collapsed: true
+  }),
+  methods: {
+    shrink() {
+      this.$el.style.width == "250px"
+        ? (this.$el.style.width = "80px")
+        : (this.$el.style.width = "250px");
+      this.collapsed = !this.collapsed;
+    }
+  }
+};
+</script>
+
+<style lang="scss">
+aside {
+  font-family: "Fredoka One", cursive;
+  position: absolute;
+  transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  top: 0;
+  left: 0;
+  width: initial;
+  display: block;
+  background-color: #fff;
+  box-shadow: 10px 150px 100px 1px rgba(0, 0, 0, 0.266);
+  z-index: 0;
+  width: 80px;
+  min-height: 100vh;
+  max-height: 100vh;
+  h1 {
+    padding: 21.5px 50px;
+    font-size: 32px;
+    background: #fff;
+    z-index: 1;
+    color: #6200ff;
+    margin: 0;
+    em {
+      color: #bada55;
+    }
+  }
+  .expander {
+    appearance: none;
+    font-size: 30px;
+    color: #6200ff;
+    outline: 0;
+    width: 100%;
+    border-left: 0;
+    border-right: 4px solid #6200ff;
+    border-top: 4px solid #6200ff;
+    border-bottom: 4px solid #6200ff;
+    box-shadow: 0;
+    padding: 12px 27px;
+    cursor: pointer;
+  }
+  .side-menu {
+    border-right: 4px solid #6200ff;
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      list-style: none;
+      padding-inline-start: 0;
+      padding: 20px 20px 0;
+      margin: 0;
+      height: calc(100vh - 169px);
+      li {
+        position: relative;
+        width: 100%;
+        white-space: nowrap;
+        margin-left: 0;
+        svg,
+        .plus {
+          position: absolute;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+          font-size: 25px;
+          color: #6200ff;
+        }
+        div {
+          position: absolute;
+          color: #0f0027;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+.slide-fade-enter-active {
+  transition: all 0.4s 0.4s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-100px);
+  opacity: 0;
+}
+</style>
