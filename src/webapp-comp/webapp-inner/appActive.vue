@@ -7,18 +7,22 @@
     >
       <p>{{about}}</p>
     </div>
-    <ul v-if="visible && devices.length > 0">
-      <li
-        v-for="d in devices"
-        :key="d.id"
-      >
-        <p> {{d.name}} </p>
-        <div
-          :class="d.status ? 'p' : 'n'"
-          class="status"
-        ></div>
-      </li>
-    </ul>
+    <transition name="slide-fade">
+      <ul v-if="visible && devices.length > 0">
+
+        <li
+          v-for="d in devices"
+          :key="d.id"
+        >
+          <p> {{d.name}} </p>
+          <div
+            :class="d.status ? 'p' : 'n'"
+            class="status"
+          ></div>
+        </li>
+
+      </ul>
+    </transition>
     <p v-if="visible && devices.length == 0">
       You don't have any connected devices under this category
     </p>
@@ -96,7 +100,7 @@ export default {
     content: "";
     transition: all 0.6s ease-in-out;
     position: absolute;
-    right: 0;
+    left: calc(100% - 30px);
     bottom: 0;
     width: 40px;
     height: 40px;
@@ -110,5 +114,16 @@ export default {
     color: #000;
     font-family: "Overlock", cursive;
   }
+}
+.slide-fade-enter-active {
+  transition: all 0.4s 0.4s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(-20px);
+  opacity: 0;
 }
 </style>

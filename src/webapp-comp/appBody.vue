@@ -50,7 +50,7 @@ export default {
   max-height: 86.7vh;
   height: 86.7vh;
   border-radius: 10px;
-  overflow: scroll;
+  overflow-y: scroll;
   transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1),
     left 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   &.activated {

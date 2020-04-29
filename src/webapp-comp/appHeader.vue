@@ -13,7 +13,7 @@
             class="icons"
             icon="bell"
           ></font-awesome-icon>
-          <span>{{notification.length}}</span>
+          <span v-show="expanded == false">{{notification.length}}</span>
           <transition name="slide-fade">
             <div
               v-if="expanded"

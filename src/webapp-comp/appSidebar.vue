@@ -68,15 +68,17 @@
           </transition>
         </li>
         <li>
-          <transition name="slide-fade">
-            <div v-if="!collapsed">
-              Misc Settings </div>
-            <font-awesome-icon
-              v-else
-              class="icons"
-              icon="cog"
-            ></font-awesome-icon>
-          </transition>
+          <router-link to="manage">
+            <transition name="slide-fade">
+              <div v-if="!collapsed">
+                Misc Settings </div>
+              <font-awesome-icon
+                v-else
+                class="icons"
+                icon="cog"
+              ></font-awesome-icon>
+            </transition>
+          </router-link>
         </li>
         <li>
           <transition name="slide-fade">
@@ -170,7 +172,7 @@ aside {
       padding-inline-start: 0;
       padding: 20px 20px 0;
       margin: 0;
-      height: calc(100vh - 169px);
+      height: calc(96vh - 169px);
       li {
         position: relative;
         width: 100%;
