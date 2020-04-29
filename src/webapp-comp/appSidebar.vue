@@ -1,8 +1,5 @@
 <template>
   <aside>
-    <div class="logo">
-      <h1> bau<em>Bemoss</em></h1>
-    </div>
     <button
       @click="shrink"
       class="expander"
@@ -131,43 +128,35 @@ aside {
   font-family: "Fredoka One", cursive;
   position: absolute;
   transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-  top: 0;
-  left: 0;
+  top: 105px;
+  left: 10px;
   width: initial;
   display: block;
-  background-color: #fff;
-  box-shadow: 10px 150px 100px 1px rgba(0, 0, 0, 0.266);
+  background-color: transparent;
+  box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white,
+    inset 0px 0px 4px rgba(255, 255, 255, 0),
+    inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white,
+    0px 0px 4px rgba(255, 255, 255, 0.2) !important;
   z-index: 0;
   width: 80px;
-  min-height: 100vh;
-  max-height: 100vh;
-  h1 {
-    padding: 21.5px 50px;
-    font-size: 32px;
-    background: #fff;
-    z-index: 1;
-    color: #6200ff;
-    margin: 0;
-    em {
-      color: #bada55;
-    }
-  }
+  min-height: calc(100vh - 120px);
+  max-height: calc(100vh - 120px);
   .expander {
     appearance: none;
     font-size: 30px;
     color: #6200ff;
     outline: 0;
+    box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white,
+      inset 0px 0px 4px rgba(255, 255, 255, 0),
+      inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white,
+      0px 0px 4px rgba(255, 255, 255, 0.2) !important;
     width: 100%;
-    border-left: 0;
-    border-right: 4px solid #6200ff;
-    border-top: 4px solid #6200ff;
-    border-bottom: 4px solid #6200ff;
+    border: 0;
     box-shadow: 0;
     padding: 12px 27px;
     cursor: pointer;
   }
   .side-menu {
-    border-right: 4px solid #6200ff;
     ul {
       display: flex;
       flex-direction: column;
@@ -191,6 +180,10 @@ aside {
           font-size: 25px;
           color: #6200ff;
         }
+        span {
+          font-size: 50px !important;
+          line-height: 0.5;
+        }
         div {
           position: absolute;
           color: #0f0027;
@@ -211,5 +204,10 @@ aside {
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(-100px);
   opacity: 0;
+}
+@keyframes fill {
+  to {
+    width: 150px;
+  }
 }
 </style>

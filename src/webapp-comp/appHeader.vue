@@ -55,17 +55,20 @@ export default {
 header {
   font-family: "Fredoka One", cursive;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
   background-color: #fff;
-  box-shadow: 50px 50px 40px 1px rgba(0, 0, 0, 0.266);
-  width: 100%;
-  border-bottom: 4px solid #6200ff;
+  box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white,
+    inset 0px 0px 4px rgba(255, 255, 255, 0),
+    inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white,
+    0px 0px 4px rgba(255, 255, 255, 0.2) !important;
+  width: calc(100% - 20px);
   .top-menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
+    padding: 0 0 0 50px;
     h1 {
       color: #6200ff;
       em {
