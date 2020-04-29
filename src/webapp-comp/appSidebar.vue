@@ -68,7 +68,7 @@
           </transition>
         </li>
         <li>
-          <router-link to="manage">
+          <router-link to="/webapp/manage">
             <transition name="slide-fade">
               <div v-if="!collapsed">
                 Misc Settings </div>

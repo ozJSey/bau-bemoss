@@ -3,39 +3,24 @@
     :class="{'activated' : activated}"
     id="webapp"
   >
-    <appTitle :message="welcome" />
-    <div class="switches">
-      <appActive about="bulbs" />
-      <appActive about="sockets" />
-      <appActive about="PCs" />
-      <appActive about="ACs" />
-      <appActive about="Cameras" />
-      <appActive about="Electronic" />
-    </div>
+    <router-view></router-view>
   </section>
 </template>
 
 <script>
-import appTitle from "@/webapp-comp/webapp-inner/appTitle.vue";
-import appActive from "@/webapp-comp/webapp-inner/appActive.vue";
+import Home from "@/webapp-comp/webapp-tabs/Home.vue";
 export default {
-  data: () => ({
-    welcome:
-      "Welcome to the system, connected devices may be seen below via switching the option, to add a device please navigate to side menu."
-  }),
+  components: {
+    Home
+  },
   props: {
     activated: {
       default: false,
       type: Boolean
     }
-  },
-  components: {
-    appTitle,
-    appActive
   }
 };
 </script>
-
 <style lang="scss">
 #webapp {
   position: absolute;
@@ -56,10 +41,6 @@ export default {
   &.activated {
     left: 270px;
     width: calc(100% - 280px);
-  }
-  .switches {
-    display: flex;
-    justify-content: space-around;
   }
 }
 </style>
