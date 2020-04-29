@@ -13,7 +13,7 @@
             class="icons"
             icon="bell"
           ></font-awesome-icon>
-          <span v-show="expanded == false">{{notification.length}}</span>
+          <span v-show="!seen">{{notification.length}}</span>
           <transition name="slide-fade">
             <div
               v-if="expanded"
@@ -56,6 +56,7 @@
 <script>
 export default {
   data: () => ({
+    seen: false,
     user: "Admin",
     notification: [
       "BEMOSS has saved 114 kWh/mo.",
@@ -67,6 +68,7 @@ export default {
   }),
   methods: {
     notifications() {
+      this.seen = true;
       this.expanded = !this.expanded;
     }
   }
