@@ -10,6 +10,9 @@
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Overlock&display=swap");
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
