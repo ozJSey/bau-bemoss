@@ -118,6 +118,7 @@ export default {
         ? (this.$el.style.width = "80px")
         : (this.$el.style.width = "250px");
       this.collapsed = !this.collapsed;
+      this.$emit("expander");
     }
   }
 };
@@ -130,20 +131,24 @@ aside {
   transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   top: 105px;
   left: 10px;
+  border-radius: 10px;
   width: initial;
   display: block;
   background-color: transparent;
+  background: #fefefe;
   box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white,
     inset 0px 0px 4px rgba(255, 255, 255, 0),
     inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white,
     0px 0px 4px rgba(255, 255, 255, 0.2) !important;
-  z-index: 0;
+  z-index: 2;
   width: 80px;
   min-height: calc(100vh - 120px);
   max-height: calc(100vh - 120px);
   .expander {
     appearance: none;
     font-size: 30px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     color: #6200ff;
     outline: 0;
     box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white,
