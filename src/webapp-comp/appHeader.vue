@@ -1,51 +1,27 @@
 <template>
   <header>
     <div class="top-menu">
-      <div class="logo">
-        <h1> bau<em>Bemoss</em></h1>
-      </div>
+      <router-link to="/" class="logo">
+        <h1>bau<em>Bemoss</em></h1>
+      </router-link>
       <div class="side-menu">
-        <a
-          @click="notifications"
-          class="notification"
-        >
-          <font-awesome-icon
-            class="icons"
-            icon="bell"
-          ></font-awesome-icon>
-          <span v-show="!seen">{{notification.length}}</span>
+        <a @click="notifications" class="notification">
+          <font-awesome-icon class="icons" icon="bell"></font-awesome-icon>
+          <span v-show="!seen">{{ notification.length }}</span>
           <transition name="slide-fade">
-            <div
-              v-if="expanded"
-              class="expanded"
-            >
+            <div v-if="expanded" class="expanded">
               <ul>
-                <li
-                  v-for="n in notification"
-                  :key="n"
-                >{{n}}</li>
+                <li v-for="n in notification" :key="n">{{ n }}</li>
               </ul>
             </div>
           </transition>
         </a>
-        <a
-          href=""
-          class="account"
-        >
-          <font-awesome-icon
-            class="icons"
-            icon="user"
-          ></font-awesome-icon>
-          {{user}}
+        <a href="" class="account">
+          <font-awesome-icon class="icons" icon="user"></font-awesome-icon>
+          {{ user }}
         </a>
-        <a
-          href=""
-          class="logout"
-        >
-          <font-awesome-icon
-            class="icons"
-            icon="power-off"
-          ></font-awesome-icon>
+        <a href="" class="logout">
+          <font-awesome-icon class="icons" icon="power-off"></font-awesome-icon>
           Logout
         </a>
       </div>
@@ -62,16 +38,16 @@ export default {
       "BEMOSS has saved 114 kWh/mo.",
       "You have given admin rights, you may \n add or remove users now.",
       "AC was closed yesterday at 1AM as requested.",
-      "Thermosthat values reports are prepared"
+      "Thermosthat values reports are prepared",
     ],
-    expanded: false
+    expanded: false,
   }),
   methods: {
     notifications() {
       this.seen = true;
       this.expanded = !this.expanded;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -94,6 +70,9 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 0 0 50px;
+    a {
+      text-decoration: none;
+    }
     h1 {
       color: #6200ff;
       em {

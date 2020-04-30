@@ -1,9 +1,8 @@
 <template>
-  <section
-    :class="{'activated' : activated}"
-    id="webapp"
-  >
-    <router-view></router-view>
+  <section :class="{ activated: activated }" id="webapp">
+    <vue-page-transition name="flip-y">
+      <router-view></router-view>
+    </vue-page-transition>
   </section>
 </template>
 
@@ -11,14 +10,14 @@
 import Home from "@/webapp-comp/webapp-tabs/Home.vue";
 export default {
   components: {
-    Home
+    Home,
   },
   props: {
     activated: {
       default: false,
-      type: Boolean
-    }
-  }
+      type: Boolean,
+    },
+  },
 };
 </script>
 <style lang="scss">

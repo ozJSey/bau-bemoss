@@ -4,7 +4,9 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import VueGlide from 'vue-glide-js'
-import 'vue-glide-js/dist/vue-glide.css'
+import 'vue-glide-js/dist/vue-glide.css';
+import VuePageTransition from 'vue-page-transition'
+Vue.use(VuePageTransition)
 import {
   FontAwesomeIcon
 } from '@fortawesome/vue-fontawesome'
