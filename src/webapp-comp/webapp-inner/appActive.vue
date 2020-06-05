@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .appActive {
   padding: 10px;
   max-width: 20%;

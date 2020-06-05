@@ -9,29 +9,33 @@
     <nav class="side-menu">
       <ul>
         <li>
-          <transition name="slide-fade">
-            <div v-if="!collapsed">
-              Home
-            </div>
-            <font-awesome-icon
-              v-else
-              class="icons"
-              icon="home"
-            ></font-awesome-icon>
-          </transition>
+          <router-link to="/webapp/">
+            <transition name="slide-fade">
+              <div v-if="!collapsed">
+                Home
+              </div>
+              <font-awesome-icon
+                v-else
+                class="icons"
+                icon="home"
+              ></font-awesome-icon>
+            </transition>
+          </router-link>
         </li>
         <li>
-          <transition name="slide-fade">
-            <div v-if="!collapsed">
-              Discover New Devices
-            </div>
-            <span
-              v-else
-              class="plus"
-            >
-              +
-            </span>
-          </transition>
+          <router-link to="/webapp/new">
+            <transition name="slide-fade">
+              <div v-if="!collapsed">
+                Discover New Devices
+              </div>
+              <span
+                v-else
+                class="plus"
+              >
+                +
+              </span>
+            </transition>
+          </router-link>
         </li>
         <li>
           <transition name="slide-fade">
@@ -48,7 +52,8 @@
         <li>
           <transition name="slide-fade">
             <div v-if="!collapsed">
-              Alarms &amp; Notifications </div>
+              Alarms &amp; Notifications
+            </div>
             <font-awesome-icon
               v-else
               class="icons"
@@ -59,7 +64,8 @@
         <li>
           <transition name="slide-fade">
             <div v-if="!collapsed">
-              Manage Users </div>
+              Manage Users
+            </div>
             <font-awesome-icon
               v-else
               class="icons"
@@ -71,7 +77,8 @@
           <router-link to="/webapp/manage">
             <transition name="slide-fade">
               <div v-if="!collapsed">
-                Misc Settings </div>
+                Misc Settings
+              </div>
               <font-awesome-icon
                 v-else
                 class="icons"

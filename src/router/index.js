@@ -18,7 +18,8 @@ const routes = [{
   component: () => import( /* webpackChunkName: "about" */ '../views/WebApp.vue'),
   children: [
     { path: '', component: () => import( /* webpackChunkName: "about" */ '../webapp-comp/webapp-tabs/Home.vue') },
-    { path: '/webapp/manage', component: () => import( /* webpackChunkName: "about" */ '../webapp-comp/webapp-tabs/Manage.vue') }
+    { path: '/webapp/manage', component: () => import( /* webpackChunkName: "about" */ '../webapp-comp/webapp-tabs/Manage.vue') },
+    { path: '/webapp/new', component: () => import( /* webpackChunkName: "about" */ '../webapp-comp/webapp-tabs/AddNew.vue') }
   ]
 }
 ]
