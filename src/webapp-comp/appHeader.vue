@@ -78,7 +78,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 header {
   font-family: "Fredoka One", cursive;
   position: absolute;

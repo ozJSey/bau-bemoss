@@ -35,9 +35,9 @@ export default {
     0px 0px 4px rgba(255, 255, 255, 0.2) !important;
   width: calc(100% - 110px);
   max-height: 86.7vh;
-  height: 86.7vh;
+  height: 85.4vh;
   border-radius: 10px;
-  overflow-y: scroll;
+  overflow-y: auto;
   transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1),
     left 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   &.activated {

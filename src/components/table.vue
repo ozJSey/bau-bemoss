@@ -3,7 +3,7 @@
     <appTitle :message="title"></appTitle>
     <table class="table-inner">
       <tr
-        @click="entries.interracted == true"
+        @click="entries.interracted = true"
         v-for="entries in tableContent"
         :key="entries.id"
       >
@@ -13,7 +13,7 @@
         <td>{{entries.ipAddress}}</td>
         <device-switch
           :deviceName="entries.title"
-          :interracted="entries.interracted"
+          :visible="entries.interracted"
         ></device-switch>
       </tr>
     </table>
@@ -47,6 +47,7 @@ export default {
 .data-table {
   padding: 0 30px;
   .table-inner {
+    position: relative;
     box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15),
       -7px -7px 20px rgba(255, 255, 255, 1),
       inset 0px 0px 4px rgba(255, 255, 255, 0),
@@ -62,11 +63,11 @@ export default {
         background-color: rgba(55, 84, 170, 0.05);
       }
       td {
-        padding: 10px;
+        padding: 11px;
         text-align: center;
       }
       th {
-        padding: 10px;
+        padding: 11px;
         text-align: left;
       }
     }

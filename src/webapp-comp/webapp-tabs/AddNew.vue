@@ -82,7 +82,7 @@ export default {
     position: absolute;
     width: 10px;
     height: 10px;
-    left: 35%;
+    left: 120px;
     top: 50%;
     transform: translate(-50%, -50%);
     background-color: #6200ff;

@@ -52,28 +52,32 @@
           </router-link>
         </li>
         <li>
-          <transition name="slide-fade">
-            <div v-if="!collapsed">
-              Alarms &amp; Notifications
-            </div>
-            <font-awesome-icon
-              v-else
-              class="icons"
-              icon="bell"
-            ></font-awesome-icon>
-          </transition>
+          <router-link to="/webapp/notifications">
+            <transition name="slide-fade">
+              <div v-if="!collapsed">
+                Alarms &amp; Notifications
+              </div>
+              <font-awesome-icon
+                v-else
+                class="icons"
+                icon="bell"
+              ></font-awesome-icon>
+            </transition>
+          </router-link>
         </li>
         <li>
-          <transition name="slide-fade">
-            <div v-if="!collapsed">
-              Manage Users
-            </div>
-            <font-awesome-icon
-              v-else
-              class="icons"
-              icon="user"
-            ></font-awesome-icon>
-          </transition>
+          <router-link to="/webapp/users">
+            <transition name="slide-fade">
+              <div v-if="!collapsed">
+                Manage Users
+              </div>
+              <font-awesome-icon
+                v-else
+                class="icons"
+                icon="user"
+              ></font-awesome-icon>
+            </transition>
+          </router-link>
         </li>
         <li>
           <router-link to="/webapp/manage">

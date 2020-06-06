@@ -1,13 +1,16 @@
 <template>
-  <section class="table-switch">
+  <section
+    v-if="visible"
+    class="table-switch"
+  >
     <input
       v-model="dn"
       type="text"
     />
     <div
-      @click="interracted = !interracted"
+      @click="ds = !ds"
       class="active"
-      :class="{' switched' : interracted}"
+      :class="{' switched' : ds}"
     >
     </div>
   </section>
@@ -16,7 +19,8 @@
 <script>
 export default {
   data: () => ({
-    storeNewName: ""
+    storeNewName: "",
+    storeNewStatus: Boolean
   }),
   computed: {
     dn: {
@@ -25,6 +29,14 @@ export default {
       },
       set(value) {
         this.storeNewName = value;
+      }
+    },
+    ds: {
+      get() {
+        return this.interracted;
+      },
+      set(value) {
+        this.storeNewStatus = value;
       }
     }
   },
@@ -36,6 +48,10 @@ export default {
     deviceName: {
       type: String,
       default: "Undefined Device"
+    },
+    visible: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -43,9 +59,18 @@ export default {
 
 <style lang="scss" scoped>
 .table-switch {
+  position: absolute;
+  left: 0;
+  padding: 0 80px 0 30px;
+  background: linear-gradient(to right, transparent 10%, white 20% 100%);
+  z-index: 1;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   input {
+    width: 80%;
+    border-radius: 5px;
+    border-color: transparent;
     padding: 0 5px;
   }
   .active {
