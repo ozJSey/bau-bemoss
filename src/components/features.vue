@@ -15,43 +15,77 @@
         <vue-glide-slide class="feature-card">
           <h3>Open Source/Open Architecture</h3>
           <p>BEMOSS™ is an open source operating system that is built upon VOLTTRON™ – a distributed agent platform developed by Pacific Northwest National Laboratory (PNNL). BEMOSS™ is designed to make it easy for hardware manufacturers to seamlessly interface their devices with BEMOSS™</p>
-          <img src="../assets/opensrc.png" alt />
-          <img src="../assets/opensrc_2.png" alt />
+          <img
+            src="../assets/opensrc.png"
+            alt
+          />
+          <img
+            src="../assets/opensrc_2.png"
+            alt
+          />
         </vue-glide-slide>
         <vue-glide-slide class="feature-card">
           <h3>Interoperability &nbsp;</h3>
           <p>BEMOSS™ is designed to work with load control devices form different manufacturers that operate on different communication technologies and data exchange protocols. These include both new commercially available products that operate on Ethernet and Wi-Fi, as well as legacy devices that operate on serial communications using Modbus RTU and BACnet MS/TP protocols.</p>
-          <img src="../assets/interoperability.png" alt srcset />
+          <img
+            src="../assets/interoperability.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="feature-card">
           <h3>Plug &amp; Play</h3>
           <p>BEMOSS™ is designed to automatically discover supported devices in a building. Once discovered, devices can be monitored and controlled for the desired function.</p>
-          <img src="../assets/plugplay.png" alt srcset />
+          <img
+            src="../assets/plugplay.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="feature-card">
           <h3>Cost Effectiveness</h3>
           <p>BEMOSS™ is built upon a robust open source platform that can operate on a low-cost single-board computer, such as the Odroid. This feature can contribute to its rapid deployment in small or medium-sized commercial buildings.</p>
-          <img src="../assets/cost.png" alt srcset />
+          <img
+            src="../assets/cost.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="feature-card">
           <h3>Scalability and Ease of Deployment</h3>
           <p>With its multi-layer architecture, BEMOSS™ can be initially deployed in one zone, which can be easily expandable to the entire building</p>
-          <img src="../assets/scalable.png" alt srcset />
+          <img
+            src="../assets/scalable.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="feature-card">
           <h3>Ability to Provide Online Access</h3>
           <p>BEMOSS™ allows online access for monitoring with role-based access control</p>
-          <img src="../assets/remote.png" alt srcset />
+          <img
+            src="../assets/remote.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="feature-card">
           <h3>Security</h3>
           <p>BEMOSS™ utilizes built-in security features provided by VOLTTRON™, and provides enhanced security features for encrypted communications.</p>
-          <img src="../assets/security.png" alt srcset />
+          <img
+            src="../assets/security.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="feature-card">
           <h3>Support from the Advisory Committee</h3>
           <p>BEMOSS™ system architecture has been developed in consultation with an advisory committee from the beginning of the project. As of June 2017, BEMOSS™ advisory committee comprises representatives from 22 organizations from government and industry.</p>
-          <img src="../assets/commutee.png" alt srcset />
+          <img
+            src="../assets/commutee.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
       </vue-glide>
     </div>

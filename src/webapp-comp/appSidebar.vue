@@ -38,16 +38,18 @@
           </router-link>
         </li>
         <li>
-          <transition name="slide-fade">
-            <div v-if="!collapsed">
-              Network Status
-            </div>
-            <font-awesome-icon
-              v-else
-              class="icons"
-              icon="wifi"
-            ></font-awesome-icon>
-          </transition>
+          <router-link to="/webapp/network">
+            <transition name="slide-fade">
+              <div v-if="!collapsed">
+                Network Status
+              </div>
+              <font-awesome-icon
+                v-else
+                class="icons"
+                icon="wifi"
+              ></font-awesome-icon>
+            </transition>
+          </router-link>
         </li>
         <li>
           <transition name="slide-fade">

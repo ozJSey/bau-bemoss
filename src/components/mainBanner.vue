@@ -18,10 +18,19 @@
         </ul>
       </nav>
     </header>
-    <div ref="banner" class="banner">
+    <div
+      ref="banner"
+      class="banner"
+    >
       <div class="title">
-        <h1 class="colage" ref="collage"></h1>
-        <p class="project" ref="project">BEMOSS</p>
+        <h1
+          class="colage"
+          ref="collage"
+        ></h1>
+        <p
+          class="project"
+          ref="project"
+        >BEMOSS</p>
         <p class="project">Energy Management Software</p>
       </div>
 
@@ -31,14 +40,26 @@
           <font-awesome-icon icon="arrow-down" />
         </span>
       </span>
-      <router-link to="webapp" class="metal radial">
+      <router-link
+        to="webapp"
+        class="metal radial"
+      >
         <font-awesome-icon icon="power-off" />
       </router-link>
-      <div ref="moreInfo" class="more-info">
+      <div
+        ref="moreInfo"
+        class="more-info"
+      >
         <p>More Information</p>
         <div class="mouse"></div>
       </div>
-      <img ref="bannerBg" class="banner-bg" src="../assets/bau.jpg" alt srcset />
+      <img
+        ref="bannerBg"
+        class="banner-bg"
+        src="../assets/bau.jpg"
+        alt
+        srcset
+      />
     </div>
   </div>
 </template>

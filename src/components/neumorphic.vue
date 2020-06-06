@@ -14,25 +14,53 @@
         :options="options"
       >
         <vue-glide-slide class="neum">
-          <img src="../assets/neum/bacnet.gif" alt srcset />
+          <img
+            src="../assets/neum/bacnet.gif"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="neum">
-          <img src="../assets/neum/ethernet.png" alt srcset />
+          <img
+            src="../assets/neum/ethernet.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="neum">
-          <img src="../assets/neum/http.png" alt srcset />
+          <img
+            src="../assets/neum/http.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="neum">
-          <img src="../assets/neum/modbus.png" alt srcset />
+          <img
+            src="../assets/neum/modbus.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="neum">
-          <img src="../assets/neum/openAdr.png" alt srcset />
+          <img
+            src="../assets/neum/openAdr.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="neum">
-          <img src="../assets/neum/wifi.svg" alt srcset />
+          <img
+            src="../assets/neum/wifi.svg"
+            alt
+            srcset
+          />
         </vue-glide-slide>
         <vue-glide-slide class="neum">
-          <img src="../assets/neum/zigbee.png" alt srcset />
+          <img
+            src="../assets/neum/zigbee.png"
+            alt
+            srcset
+          />
         </vue-glide-slide>
       </vue-glide>
     </div>

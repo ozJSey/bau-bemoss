@@ -9,40 +9,82 @@
         <div class="content">
           <h3 class="inner-title">Targeted Buildings &amp; Load</h3>
           <p>With respect to load types, there are three major loads in commercial buildings: HVAC, lighting and plug loads. According to the data from EIA published in 2008 , electricity use by HVAC equipment, i.e., space heating, cooling and ventilation accounts for 30% of the total electricity consumption in buildings. Lighting loads constitute the majority share of electricity use at 38%. Electricity use by plug loads, i.e., office equipment, computers, etc. accounts for 6% of total electricity use in buildings. Other loads include water heating, refrigeration, elevators, etc. The figure below illustrates electricity use in buildings by load type.</p>
-          <img src="../assets/target_1.png" alt srcset />
+          <img
+            src="../assets/target_1.png"
+            alt
+            srcset
+          />
           <p>With respect to load types, there are three major loads in commercial buildings: HVAC, lighting and plug loads. According to the data from EIA published in 2008 , electricity use by HVAC equipment, i.e., space heating, cooling and ventilation accounts for 30% of the total electricity consumption in buildings. Lighting loads constitute the majority share of electricity use at 38%. Electricity use by plug loads, i.e., office equipment, computers, etc. accounts for 6% of total electricity use in buildings. Other loads include water heating, refrigeration, elevators, etc. The figure below illustrates electricity use in buildings by load type.</p>
-          <img src="../assets/target_2.png" alt srcset />
+          <img
+            src="../assets/target_2.png"
+            alt
+            srcset
+          />
         </div>
-        <div id="parallaxSide" class="side-content">
+        <div
+          id="parallaxSide"
+          class="side-content"
+        >
           <h3 class="inner-title">Supported Communication Technologies and Protocols</h3>
           <p>Various technologies are available that allow communications between BEMOSS™ and associated load controllers in a building. These include wired technologies, like: Power Line Communication (PLC), Ethernet and Serial (RS-485); as well as, wireless ones, like: ZigBee, Wi-Fi, Z-wave and EnOcean.</p>
           <p>The full version of BEMOSS™ supports the following prevalent communication technologies: Ethernet (IEEE 802.3), Serial (RS-485), ZigBee (IEEE 802.15.4) and Wi-Fi (IEEE 802.11), as summarized in the Table below.</p>
-          <img src="../assets/supported-tech.png" alt srcset />
+          <img
+            src="../assets/supported-tech.png"
+            alt
+            srcset
+          />
           <p>Devices communicating using the same communication technology may utilize different data exchange protocols. For a building energy management system, there are many protocols that are popular or becoming popular. These are open standard protocols like: BACnet, Modbus, KNX, M-bus, Web, OpenADR and Smart Energy (SE), etc.</p>
           <p>BEMOSS™ v3.5 supports the following protocols: BACnet, Modbus, Web, OpenADR and SE protocols, as summarized below.</p>
-          <img src="../assets/supported_tech.png" alt srcset />
+          <img
+            src="../assets/supported_tech.png"
+            alt
+            srcset
+          />
         </div>
         <div class="content">
           <h3 class="inner-title">List of Supported Hardware</h3>
           <p>This “BEMOSS™ v3.5” release supports selected HVAC, lighting and plug load controllers, as shown in the table below. Please note that these devices are accessible only on the local network and require local server hardware hosting BEMOSS. For information on devices with cloud accessibility, please visit BEMControls website.</p>
-          <img src="../assets/supportedH.png" alt srcset />
+          <img
+            src="../assets/supportedH.png"
+            alt
+            srcset
+          />
         </div>
-        <div ref="stopper" class="pt-180 content">
+        <div
+          ref="stopper"
+          class="pt-180 content"
+        >
           <div class>
             <h3 class="inner-title">HVAC Controllers</h3>
-            <img src="../assets/havc.png" alt srcset />
+            <img
+              src="../assets/havc.png"
+              alt
+              srcset
+            />
           </div>
           <div class>
             <h3 class="inner-title">Lighting Load Controllers</h3>
-            <img src="../assets/lightning.png" alt srcset />
+            <img
+              src="../assets/lightning.png"
+              alt
+              srcset
+            />
           </div>
           <div class>
             <h3 class="inner-title">Plug Load Controllers</h3>
-            <img src="../assets/plug.png" alt srcset />
+            <img
+              src="../assets/plug.png"
+              alt
+              srcset
+            />
           </div>
           <div class>
             <h3 class="inner-title">Sensors</h3>
-            <img src="../assets/sensors.png" alt srcset />
+            <img
+              src="../assets/sensors.png"
+              alt
+              srcset
+            />
           </div>
         </div>
       </div>

@@ -15,11 +15,12 @@ const routes = [{
   // route level code-splitting
   // this generates a separate chunk (about.[hash].js) for this route
   // which is lazy-loaded when the route is visited.
-  component: () => import( /* webpackChunkName: "about" */ '../views/WebApp.vue'),
+  component: () => import('../views/WebApp.vue'),
   children: [
-    { path: '', component: () => import( /* webpackChunkName: "about" */ '../webapp-comp/webapp-tabs/Home.vue') },
-    { path: '/webapp/manage', component: () => import( /* webpackChunkName: "about" */ '../webapp-comp/webapp-tabs/Manage.vue') },
-    { path: '/webapp/new', component: () => import( /* webpackChunkName: "about" */ '../webapp-comp/webapp-tabs/AddNew.vue') }
+    { path: '', component: () => import('../webapp-comp/webapp-tabs/Home.vue') },
+    { path: '/webapp/manage', component: () => import('../webapp-comp/webapp-tabs/Manage.vue') },
+    { path: '/webapp/new', component: () => import('../webapp-comp/webapp-tabs/AddNew.vue') },
+    { path: '/webapp/network', component: () => import('../webapp-comp/webapp-tabs/Network.vue') }
   ]
 }
 ]

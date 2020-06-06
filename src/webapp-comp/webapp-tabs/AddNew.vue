@@ -5,7 +5,6 @@
       :key="dev.id"
       class="device-card"
     >
-
       <h3
         class="menu-header"
         :class="{'active' : activeTab == i}"
