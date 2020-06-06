@@ -1,5 +1,5 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPowerOff, fas } from '@fortawesome/free-solid-svg-icons'
+import { faPowerOff, fas, faUserSlash } from '@fortawesome/free-solid-svg-icons'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { faBell } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
@@ -11,6 +11,8 @@ import { faAlignRight } from '@fortawesome/free-solid-svg-icons';
 import { faBug } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 library.add(faBug);
 library.add(faAlignRight);
 library.add(faBoxes);
@@ -23,3 +25,6 @@ library.add(faPowerOff);
 library.add(faUser);
 library.add(faPlus);
 library.add(faCalendar);
+library.add(faEye);
+library.add(faEdit);
+library.add(faUserSlash)
