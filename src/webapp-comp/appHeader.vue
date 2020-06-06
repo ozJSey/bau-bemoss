@@ -41,8 +41,8 @@
           ></font-awesome-icon>
           {{ user }}
         </a>
-        <a
-          href=""
+        <router-link
+          to="/login"
           class="logout"
         >
           <font-awesome-icon
@@ -50,7 +50,7 @@
             icon="power-off"
           ></font-awesome-icon>
           Logout
-        </a>
+        </router-link>
       </div>
     </div>
   </header>
@@ -161,6 +161,7 @@ header {
         align-items: center;
       }
       .account {
+        cursor: default;
         font-size: 14px;
         margin: 0 7px;
         text-decoration: none;

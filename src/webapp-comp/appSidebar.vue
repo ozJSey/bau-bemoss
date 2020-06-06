@@ -108,16 +108,18 @@
           </router-link>
         </li>
         <li>
-          <transition name="slide-fade">
-            <div v-if="!collapsed">
-              Logout
-            </div>
-            <font-awesome-icon
-              v-else
-              class="icons"
-              icon="power-off"
-            ></font-awesome-icon>
-          </transition>
+          <router-link to="/login">
+            <transition name="slide-fade">
+              <div v-if="!collapsed">
+                Logout
+              </div>
+              <font-awesome-icon
+                v-else
+                class="icons"
+                icon="power-off"
+              ></font-awesome-icon>
+            </transition>
+          </router-link>
         </li>
       </ul>
     </nav>
