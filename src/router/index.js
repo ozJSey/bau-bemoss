@@ -10,6 +10,11 @@ const routes = [{
   component: Home
 },
 {
+  path: '/login',
+  name: 'Login',
+  component: () => import('../views/Login.vue')
+},
+{
   path: '/webapp',
   name: 'WebApp',
   // route level code-splitting
@@ -18,14 +23,14 @@ const routes = [{
   component: () => import('../views/WebApp.vue'),
   children: [
     { path: '', component: () => import('../webapp-comp/webapp-tabs/Home.vue') },
-    { path: '/webapp/manage', component: () => import('../webapp-comp/webapp-tabs/Manage.vue') },
+    { path: '/webapp/manage', component: () => import('../webapp-comp/webapp-tabs/Manage.vue'), children: [{ path: '/webapp/manage/:id', component: () => import('../webapp-comp/webapp-tabs/Lightbox.vue') }] },
     { path: '/webapp/new', component: () => import('../webapp-comp/webapp-tabs/AddNew.vue') },
     { path: '/webapp/network', component: () => import('../webapp-comp/webapp-tabs/Network.vue') },
     { path: '/webapp/notifications', component: () => import('../webapp-comp/webapp-tabs/Notifications.vue') },
     { path: '/webapp/users', component: () => import('../webapp-comp/webapp-tabs/ManageUsers.vue') },
     { path: '/webapp/graphs', component: () => import('../webapp-comp/webapp-tabs/Graphs.vue') }
   ]
-}
+},
 ]
 
 const router = new VueRouter({

@@ -43,19 +43,19 @@ export default {
       switch (this.username) {
         case "admin":
           this.password == "bemossadmin"
-            ? router.push("WebApp")
+            ? this.$router.push("WebApp")
             : this.error("Your id or password is incorrect");
           break;
         case "manager":
           this.password == "bemossadmin"
-            ? router.push("WebApp")
+            ? this.$router.push("WebApp")
             : this.error("Your id or password is incorrect");
           break;
         default:
           if (this.userList.includes(this.username)) {
             let index = this.userList.indexOf(this.username);
             this.password == this.userList[index].password
-              ? router.push("WebApp")
+              ? this.$router.push("WebApp")
               : this.error("Your id or password is incorrect");
           }
           break;

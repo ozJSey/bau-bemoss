@@ -45,6 +45,7 @@ export default {
 
 <style lang="scss">
 .data-table {
+  font-family: "Overlock", cursive;
   padding: 0 30px;
   .table-inner {
     position: relative;

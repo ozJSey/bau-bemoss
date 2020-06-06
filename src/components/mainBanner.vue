@@ -41,7 +41,7 @@
         </span>
       </span>
       <router-link
-        to="webapp"
+        to="login"
         class="metal radial"
       >
         <font-awesome-icon icon="power-off" />
@@ -71,25 +71,32 @@ export default {
       collage: "BAHCESEHIR\nUniversity"
     };
   },
+  methods: {
+    type() {
+      let index = 0;
+
+      var a = setInterval(() => {
+        if (this.$refs.collage) {
+          this.$refs.collage.innerText += this.collage.split("")[index];
+          if (this.$refs.collage.innerText.length > this.collage.length - 1) {
+            document.querySelector("header").classList += " top-0";
+            this.$refs.moreInfo.classList += " bottom-10";
+            clearInterval(a);
+          }
+          index++;
+        }
+      }, 200);
+
+      setTimeout(() => {
+        this.$refs.bannerBg.classList += " active";
+      }, 1000);
+    }
+  },
   props: {
     msg: String
   },
   mounted() {
-    let index = 0;
-    window.onload = () => {
-      var a = setInterval(() => {
-        this.$refs.collage.innerText += this.collage.split("")[index];
-        if (this.$refs.collage.innerText.length > this.collage.length - 1) {
-          document.querySelector("header").classList += " top-0";
-          this.$refs.moreInfo.classList += " bottom-10";
-          clearInterval(a);
-        }
-        index++;
-      }, 200);
-      setTimeout(() => {
-        this.$refs.bannerBg.classList += " active";
-      }, 1000);
-    };
+    this.type();
   }
 };
 </script>
