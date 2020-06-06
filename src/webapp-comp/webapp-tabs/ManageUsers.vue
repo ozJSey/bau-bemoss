@@ -20,7 +20,7 @@
               :disabled="u.id == 0"
               @click="u.reveal = !u.reveal"
             >
-              <font-awesome-icon icon="eye"></font-awesome-icon>
+              <font-awesome-icon :icon="u.reveal ? 'eye-slash' : 'eye'"></font-awesome-icon>
             </button>
             <button @click="u.editable = !u.editable">
               <font-awesome-icon icon="edit"></font-awesome-icon>
@@ -153,6 +153,10 @@ export default {
           &:active {
             transform: translateY(-7px);
             font-size: 20px;
+          }
+          &:disabled {
+            opacity: 0.4;
+            pointer-events: none;
           }
           &:focus {
             outline: none;

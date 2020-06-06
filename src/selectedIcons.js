@@ -13,6 +13,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 library.add(faBug);
 library.add(faAlignRight);
 library.add(faBoxes);
@@ -27,4 +28,5 @@ library.add(faPlus);
 library.add(faCalendar);
 library.add(faEye);
 library.add(faEdit);
-library.add(faUserSlash)
+library.add(faUserSlash);
+library.add(faEyeSlash);
