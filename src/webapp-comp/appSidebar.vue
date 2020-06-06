@@ -94,16 +94,18 @@
           </router-link>
         </li>
         <li>
-          <transition name="slide-fade">
-            <div v-if="!collapsed">
-              Applications
-            </div>
-            <font-awesome-icon
-              v-else
-              class="icons"
-              icon="boxes"
-            ></font-awesome-icon>
-          </transition>
+          <router-link to="/webapp/graphs">
+            <transition name="slide-fade">
+              <div v-if="!collapsed">
+                Graphs
+              </div>
+              <font-awesome-icon
+                v-else
+                class="icons"
+                icon="chart-line"
+              ></font-awesome-icon>
+            </transition>
+          </router-link>
         </li>
         <li>
           <transition name="slide-fade">

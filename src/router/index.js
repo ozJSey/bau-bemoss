@@ -22,7 +22,8 @@ const routes = [{
     { path: '/webapp/new', component: () => import('../webapp-comp/webapp-tabs/AddNew.vue') },
     { path: '/webapp/network', component: () => import('../webapp-comp/webapp-tabs/Network.vue') },
     { path: '/webapp/notifications', component: () => import('../webapp-comp/webapp-tabs/Notifications.vue') },
-    { path: '/webapp/users', component: () => import('../webapp-comp/webapp-tabs/ManageUsers.vue') }
+    { path: '/webapp/users', component: () => import('../webapp-comp/webapp-tabs/ManageUsers.vue') },
+    { path: '/webapp/graphs', component: () => import('../webapp-comp/webapp-tabs/Graphs.vue') }
   ]
 }
 ]
