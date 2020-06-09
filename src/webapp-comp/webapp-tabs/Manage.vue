@@ -1,34 +1,35 @@
 <template>
   <section class="device-settings">
     <appTitle message="Device Settings"></appTitle>
-    <appDeviceSettings :devices="hvacData" title="HVACs"></appDeviceSettings>
-    <appDeviceSettings title="Lightning Devices"></appDeviceSettings>
-    <appDeviceSettings title="Plug Devices"></appDeviceSettings>
-    <appDeviceSettings title="Sensors"></appDeviceSettings>
+    <appDeviceSettings :devices="hvac" title="HVACs"></appDeviceSettings>
+    <appDeviceSettings :devices="lightningDevices" title="Lightning Devices"></appDeviceSettings>
+    <appDeviceSettings :devices="plugDevices" title="Plug Devices"></appDeviceSettings>
+    <appDeviceSettings :devices="SensorDevices" title="Sensors"></appDeviceSettings>
   </section>
 </template>
 
 <script>
 import appTitle from "../webapp-inner/appTitle.vue";
 import appDeviceSettings from "../webapp-inner/appDeviceSettings.vue";
+import store from '../../store/index';
 export default {
   components: {
     appDeviceSettings,
-    appTitle
+    appTitle,
+    store,
   },
   data: () => ({
     expanded: false,
     apiData: {},
     hvacDevices: {},
+    hvac: 'HVAC',
+    lightningDevices: 'Lighting Devices',
+    plugDevices: 'Plug Devices',
+    SensorDevices: 'Sensor Devices'
   }),
   methods: {
     expand() {
       this.expanded = !this.expanded;
-    }
-  },
-  computed: {
-    hvacData() {
-      return this.hvacDevices;
     }
   },
   watch: {
@@ -41,7 +42,8 @@ export default {
     $.getJSON("https://bemoss-e8288.firebaseio.com/Bemoss%20Database.json", function(
       data
     ) {
-      this.$store.commit('hvacApi', data['HVAC']);
+      store.commit('apiData', data);
+      console.log(data);
     });
   }
 };

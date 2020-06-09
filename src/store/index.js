@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    apiData: {},
     bulbs: [
       { id: 1, name: "Hall", status: true },
       { id: 2, name: "Kitchen", status: false },
@@ -45,6 +46,9 @@ export default new Vuex.Store({
     electronic: []
   },
   mutations: {
+    apiData(state, payload) {
+      this.state.apiData = payload;
+    }
   },
   actions: {
   },

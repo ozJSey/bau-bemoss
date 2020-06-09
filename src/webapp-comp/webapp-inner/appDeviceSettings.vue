@@ -6,43 +6,40 @@
       class="dropdown-selected"
     >
       <p>{{title}}</p>
-      
+
       <font-awesome-icon
         v-if="devices"
         icon="arrow-down"
       ></font-awesome-icon>
     </div>
     <div
-      v-if="devices"
+      v-if="innerData"
       class="dropdown-menu"
       :class="{'expanded': expanded}"
     >
-    <input type="text" v-model="devices">
-    {{devices}}
-      <!-- <router-link
-        v-for="(d, i) in devices"
-        :key="i"
-        :to="'devices:'+d"
-      >
-        <h5 v-if="d.location" class="title">{{d.location}}</h5>
-        <img
-          src="https://robohash.org/1"
-          alt=""
-          srcset=""
-        >
-        <p class="name">{{d.name}}</p>
-        <p class="status"> Status {{d.status}} </p>
-      </router-link> -->
-      <!-- <router-view></router-view> -->
+      <h3 class="dropdown-title">{{innerData['Description']['Details']}}</h3>
+      <p class="device-numbers">Device Count: {{innerData['Description']['DevicesCount']}}</p>
+      <div class="devices-wrapper-inner">
+        <hvacSettings
+          v-if="devices == 'HVAC'"
+          :appropriateIcon="appropriateIcon"
+          :deviceVariations="deviceVariations"
+        />
+      </div>
     </div>
   </section>
 </template>
 
 <script>
+import hvacSettings from "../../components/hvacSettings.vue";
+import appDeviceSettings from "./appDeviceSettings.vue";
+import store from "../../store/index";
 import Lightbox from "../webapp-tabs/Lightbox.vue";
 export default {
   components: {
-    Lightbox
+    Lightbox,
+    appDeviceSettings,
+    hvacSettings
   },
   data: () => ({
     expanded: false
@@ -55,20 +52,48 @@ export default {
   watch: {
     deviceNames(newValue, oldValue) {
       this.deviceNames = newValue;
-    },
+    }
   },
   props: {
     title: {
       type: String,
-      required: false,
-    },
-    devices:{
-      type: Object,
       required: false
-    } 
+    },
+    devices: {
+      type: String,
+      required: false
+    }
   },
-  mounted(){
-    console.log('tag', this.devices)
+  mounted() {
+    console.log("tag", store.state.apiData);
+  },
+  computed: {
+    innerData() {
+      return store.state.apiData[this.devices];
+    },
+    appropriateIcon() {
+      switch (this.devices) {
+        case "HVAC":
+          return "fan";
+          break;
+        case "Lighting Devices":
+          return "lightbulb";
+          break;
+        case "Plug Devices":
+          return "plug";
+          break;
+        case "Sensor Devices":
+          return "shield-alt";
+          break;
+        default:
+          break;
+      }
+    },
+    deviceVariations() {
+      let data = store.state.apiData[this.devices];
+      // delete data.Description;
+      return data;
+    }
   }
 };
 </script>
@@ -79,7 +104,7 @@ export default {
   width: 100%;
   align-self: flex-end;
   height: 100%;
-  padding-top: 20px;
+  padding: 10px 0;
   .dropdown-selected {
     box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15),
       -7px -7px 20px rgba(255, 255, 255, 1),
@@ -88,7 +113,7 @@ export default {
       inset -7px -7px 20px rgba(255, 255, 255, 1),
       0px 0px 4px rgba(255, 255, 255, 0.2) !important;
     margin: 0 30px;
-    padding: 5px 30px;
+    padding: 5px 20px;
     overflow: hidden;
     border-radius: 10px;
     display: flex;
@@ -110,7 +135,6 @@ export default {
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     min-height: 0;
     height: 0;
-    
     overflow: hidden;
     border-radius: 10px;
     background-color: white;
@@ -121,19 +145,32 @@ export default {
       inset -7px -7px 20px rgba(255, 255, 255, 1),
       0px 0px 4px rgba(255, 255, 255, 0.2) !important;
     &.expanded {
-      min-height: 400px;
+      min-height: 60vh;
+      overflow: auto;
       margin: 10px 30px 10px;
+      padding: 20px;
       &:last-child {
         margin-bottom: 50px;
+        padding-bottom: 50px;
       }
     }
-   
-    a {
-      margin: 5px 0;
-      &:first-child {
-        margin-top: 20px;
-      }
-    }
+  }
+  .dropdown-title {
+    font-size: 25px;
+    margin: 0 0 10px;
+    background: -webkit-linear-gradient(100deg, #bada55 45%, #6200ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .device-numbers {
+    font-size: 15px;
+    margin: 0 0 10px;
+    background: -webkit-linear-gradient(100deg, #6200ff 25%, #bada55);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: right;
   }
 }
 </style>
