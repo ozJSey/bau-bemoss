@@ -69,6 +69,7 @@
 <script>
 import DatePick from "vue-date-pick";
 import "vue-date-pick/dist/vueDatePick.css";
+import store from "../../store";
 export default {
   data: () => ({
     notificationDesc: "",
@@ -95,17 +96,22 @@ export default {
   },
   methods: {
     addNotif() {
-      let currentLenght = Number(Object.keys(this.allNotifications).length) + 1;
-      let newEntry = {
-        id: currentLenght,
-        title: this.notificationTitle,
-        desc: this.notificationDesc
-      };
-      this.allNotifications["n" + currentLenght] = newEntry;
-      this.notificationTitle = "";
-      this.notificationDesc = "";
-      this.expanded = false;
-      this.titleExpanded = false;
+      if (this.notificationTitle != "" && this.notificationDesc != "") {
+        let currentLenght =
+          Number(Object.keys(this.allNotifications).length) + 1;
+        let newEntry = {
+          id: currentLenght,
+          title: this.notificationTitle,
+          desc: this.notificationDesc
+        };
+        this.allNotifications["n" + currentLenght] = newEntry;
+        this.notificationTitle = "";
+        this.notificationDesc = "";
+        this.expanded = false;
+        this.titleExpanded = false;
+        const values = Object.values(this.allNotifications).map(e => e.desc);
+        store.commit("addNotif", values);
+      }
     },
     focusInput(e, d) {
       e.target.firstChild ? e.target.firstChild.focus() : null;

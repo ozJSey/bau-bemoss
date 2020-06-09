@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     apiData: {},
+    notifications: [],
     bulbs: [
       { id: 1, name: "Hall", status: true },
       { id: 2, name: "Kitchen", status: false },
@@ -48,6 +49,9 @@ export default new Vuex.Store({
   mutations: {
     apiData(state, payload) {
       this.state.apiData = payload;
+    },
+    addNotif(state, value) {
+      this.state.notifications = value;
     }
   },
   actions: {

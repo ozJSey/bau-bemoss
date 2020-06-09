@@ -57,22 +57,28 @@
 </template>
 
 <script>
+import store from "../store";
+
 export default {
   data: () => ({
     seen: false,
     user: "Admin",
-    notification: [
-      "BEMOSS has saved 114 kWh/mo.",
-      "You have given admin rights, you may \n add or remove users now.",
-      "AC was closed yesterday at 1AM as requested.",
-      "Thermosthat values reports are prepared"
-    ],
     expanded: false
   }),
+  computed: {
+    notification() {
+      return store.state.notifications;
+    }
+  },
   methods: {
     notifications() {
       this.seen = true;
       this.expanded = !this.expanded;
+    }
+  },
+  watch: {
+    notification(newValue, oldValue) {
+      this.seen = false;
     }
   }
 };

@@ -22,8 +22,24 @@
             <li
               v-for="(d, count) in dev.devices"
               :key="count"
-              @click="moveDown(dev.name)"
-            > {{d}} </li>
+            > {{d}}
+              <div class="btn-grp">
+                <button
+                  v-if="i != 2"
+                  class="down"
+                  @click="moveDown(index, d, i)"
+                >
+                  <font-awesome-icon icon="arrow-down"></font-awesome-icon>
+                </button>
+                <button
+                  v-if="i != 0"
+                  class="up"
+                  @click="moveUp(index, d, i)"
+                >
+                  <font-awesome-icon icon="arrow-up"></font-awesome-icon>
+                </button>
+              </div>
+            </li>
           </ul>
         </div>
       </transition>
@@ -62,19 +78,48 @@ export default {
     activeTab: 0
   }),
   methods: {
-    moveDown(n) {
-      console.log(n);
+    moveDown(t, d, i) {
+      this.devices[t].devices = this.devices[t].devices.filter(e => e != d);
+      switch (i) {
+        case 0:
+          this.devices.approved.devices.push(d);
+          break;
+        case 1:
+          this.devices.nonBemoss.devices.push(d);
+          break;
+        default:
+          break;
+      }
+    },
+    moveUp(t, d, i) {
+      this.devices[t].devices = this.devices[t].devices.filter(e => e != d);
+      this.devices[t].devices = this.devices[t].devices.filter(e => e != d);
+      switch (i) {
+        case 1:
+          this.devices.pending.devices.push(d);
+          break;
+        case 2:
+          this.devices.approved.devices.push(d);
+          break;
+        default:
+          break;
+      }
     }
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.devices-wrapper {
+  margin-top: 50px;
+}
 .menu-header {
   position: relative;
   color: #6200ff;
   text-align: center;
   font-size: 36px;
+  line-height: 72px;
+  margin: 0;
   font-family: "Fredoka One", cursive;
   cursor: pointer;
   &::before {
@@ -107,18 +152,36 @@ export default {
     list-style: none;
     padding-inline-start: 0;
     li {
+      display: flex;
+      justify-content: space-between;
       color: #0e0025;
       font-size: 1.5rem;
       margin: 10px 0;
+      min-width: 300px;
+      button {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+        line-height: 0.7;
+        text-align: center;
+        padding: 0 4px;
+        &.down {
+          background-color: rgba(89, 0, 255, 0.212);
+        }
+        &.up {
+          background-color: rgba(145, 255, 0, 0.329);
+        }
+      }
     }
   }
 }
 .menu-enter-active,
 .menu-leave-active {
-  transition: all 0.5s;
+  transition: all 0.5s ease;
 }
 .menu-enter, .menu-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
-  padding: 20px 0;
+  height: 0;
+  transform: translateY(-10px);
 }
 </style>
