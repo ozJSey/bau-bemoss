@@ -1,12 +1,10 @@
 <template>
   <section class="device-settings">
     <appTitle message="Device Settings"></appTitle>
-    <appDeviceSettings title="HVACs"></appDeviceSettings>
+    <appDeviceSettings :devices="hvacData" title="HVACs"></appDeviceSettings>
     <appDeviceSettings title="Lightning Devices"></appDeviceSettings>
     <appDeviceSettings title="Plug Devices"></appDeviceSettings>
     <appDeviceSettings title="Sensors"></appDeviceSettings>
-    <appDeviceSettings title="Cameras"></appDeviceSettings>
-    <appDeviceSettings title="Electronics"></appDeviceSettings>
   </section>
 </template>
 
@@ -19,20 +17,33 @@ export default {
     appTitle
   },
   data: () => ({
-    expanded: false
+    expanded: false,
+    apiData: {},
+    hvacDevices: {},
   }),
   methods: {
     expand() {
       this.expanded = !this.expanded;
     }
+  },
+  computed: {
+    hvacData() {
+      return this.hvacDevices;
+    }
+  },
+  watch: {
+    hvacDevices(newVal, old){
+      console.log(newVal)
+      this.hvacDevices = newVal;
+    }
+  },
+  created() {
+    $.getJSON("https://bemoss-e8288.firebaseio.com/Bemoss%20Database.json", function(
+      data
+    ) {
+      this.$store.commit('hvacApi', data['HVAC']);
+    });
   }
-  // created() {
-  //   $.getJSON("https://bemoss-e8288.firebaseio.com/Device1.json", function(
-  //     data
-  //   ) {
-  //     console.log(data);
-  //   });
-  // }
 };
 </script>
 

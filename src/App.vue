@@ -10,6 +10,13 @@
   </div>
 </template>
 
+<script>
+import store from '../src/store/index';
+export default {
+  store
+}
+</script>
+
 <style lang="scss">
 .overlay-bottom {
   background: #6200ff !important;

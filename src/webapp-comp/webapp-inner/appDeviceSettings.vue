@@ -6,23 +6,25 @@
       class="dropdown-selected"
     >
       <p>{{title}}</p>
+      
       <font-awesome-icon
         v-if="devices"
         icon="arrow-down"
       ></font-awesome-icon>
     </div>
-
     <div
       v-if="devices"
       class="dropdown-menu"
       :class="{'expanded': expanded}"
     >
-      <router-link
-        v-for="d in devices"
-        :key="d.id"
-        to="devices/:id"
+    <input type="text" v-model="devices">
+    {{devices}}
+      <!-- <router-link
+        v-for="(d, i) in devices"
+        :key="i"
+        :to="'devices:'+d"
       >
-        <h5 class="title">{{d.location}}</h5>
+        <h5 v-if="d.location" class="title">{{d.location}}</h5>
         <img
           src="https://robohash.org/1"
           alt=""
@@ -30,8 +32,8 @@
         >
         <p class="name">{{d.name}}</p>
         <p class="status"> Status {{d.status}} </p>
-      </router-link>
-      <lightbox></lightbox>
+      </router-link> -->
+      <!-- <router-view></router-view> -->
     </div>
   </section>
 </template>
@@ -50,9 +52,23 @@ export default {
       this.expanded = !this.expanded;
     }
   },
+  watch: {
+    deviceNames(newValue, oldValue) {
+      this.deviceNames = newValue;
+    },
+  },
   props: {
-    title: String,
-    devices: Object
+    title: {
+      type: String,
+      required: false,
+    },
+    devices:{
+      type: Object,
+      required: false
+    } 
+  },
+  mounted(){
+    console.log('tag', this.devices)
   }
 };
 </script>
@@ -94,7 +110,7 @@ export default {
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     min-height: 0;
     height: 0;
-    margin: 10px 30px 10px;
+    
     overflow: hidden;
     border-radius: 10px;
     background-color: white;
@@ -106,10 +122,12 @@ export default {
       0px 0px 4px rgba(255, 255, 255, 0.2) !important;
     &.expanded {
       min-height: 400px;
+      margin: 10px 30px 10px;
+      &:last-child {
+        margin-bottom: 50px;
+      }
     }
-    &:last-child {
-      margin-bottom: 50px;
-    }
+   
     a {
       margin: 5px 0;
       &:first-child {

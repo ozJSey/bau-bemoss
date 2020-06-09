@@ -6,8 +6,6 @@
       <appActive about="sockets" />
       <appActive about="PCs" />
       <appActive about="ACs" />
-      <appActive about="Cameras" />
-      <appActive about="Electronic" />
     </div>
   </section>
 </template>
