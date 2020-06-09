@@ -116,7 +116,7 @@ export default {
 <style lang="scss" scoped>
 .login-page {
   background: #fefefe;
-  width: 100vw;
+  max-width: 100vw;
   height: 100vh;
   display: flex;
   align-items: flex-start;

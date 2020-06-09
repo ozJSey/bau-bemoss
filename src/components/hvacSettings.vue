@@ -311,13 +311,12 @@ export default {
       a {
         background: #00e9fa;
         box-shadow: 0 0 20px rgb(0, 247, 255), 0 0 20px rgb(0, 247, 255),
-          0 0 10px rgb(0, 247, 255), inset 0 0 10px #ffd, inset 0 0 10px #ffd,
-          inset 0 0 20px #ffd;
+          0 0 10px rgb(0, 247, 255);
         &::before {
-          background: #5ff4ff;
+          background: #00e9fa;
         }
         &::after {
-          background: #5ff4ff;
+          background: #00e9fa;
         }
       }
     }
@@ -357,13 +356,12 @@ export default {
         &:hover {
           background: #00e9fa;
           box-shadow: 0 0 20px rgb(0, 247, 255), 0 0 20px rgb(0, 247, 255),
-            0 0 10px rgb(0, 247, 255), inset 0 0 10px #ffd, inset 0 0 10px #ffd,
-            inset 0 0 20px #ffd;
+            0 0 10px rgb(0, 247, 255);
           &::before {
-            background: #5ff4ff;
+            background: #00e9fa;
           }
           &::after {
-            background: #5ff4ff;
+            background: #00e9fa;
           }
           span {
             color: white;

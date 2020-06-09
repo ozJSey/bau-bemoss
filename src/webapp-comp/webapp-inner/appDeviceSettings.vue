@@ -156,9 +156,11 @@ export default {
       overflow: auto;
       margin: 10px 30px 10px;
       padding: 20px;
-      &:last-child {
-        margin-bottom: 50px;
-        padding-bottom: 50px;
+    }
+    &:last-child {
+      &.expanded {
+        padding-bottom: 0;
+        margin-bottom: 0;
       }
     }
   }

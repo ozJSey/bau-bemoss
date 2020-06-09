@@ -54,7 +54,10 @@
       <div class="right">
         <h2 class="device-title"> Additional Settings </h2>
         <p> Color &amp; Brightness </p>
-        <slider-picker :value="'colors'+i" />
+        <slider-picker
+          v-model="d['LightColor']"
+          :value="'colors'+i"
+        />
         <p> Scenes </p>
         <div class="custom-radio-wrapper">
           <div class="custom-radio-button">
