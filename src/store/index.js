@@ -6,7 +6,12 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     apiData: {},
-    notifications: [],
+    notifications: [
+      "BEMOSS has saved 114 kWh/mo.",
+      "You have given admin rights, you may \n add or remove users now.",
+      "AC was closed yesterday at 1AM as requested.",
+      "Thermosthat values reports are prepared"
+    ],
     bulbs: [
       { id: 1, name: "Hall", status: true },
       { id: 2, name: "Kitchen", status: false },

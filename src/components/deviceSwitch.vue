@@ -4,11 +4,12 @@
     class="table-switch"
   >
     <input
+      @change="textChange"
       v-model="dn"
       type="text"
     />
     <div
-      @click="ds = !ds"
+      @click="statuChange"
       class="active"
       :class="{' switched' : ds}"
     >
@@ -20,7 +21,7 @@
 export default {
   data: () => ({
     storeNewName: "",
-    storeNewStatus: Boolean
+    storeNewStatus: false
   }),
   computed: {
     dn: {
@@ -52,6 +53,15 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    textChange() {
+      this.$emit("changed", this.storeNewName);
+    },
+    statuChange() {
+      this.ds = !this.ds;
+      this.$emit("statusChanged");
     }
   }
 };

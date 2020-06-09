@@ -12,8 +12,10 @@
         <td>{{entries.setupIn}}</td>
         <td>{{entries.ipAddress}}</td>
         <device-switch
+          @changed="nameChanged($event , entries.id)"
           :deviceName="entries.title"
           :visible="entries.interracted"
+          @statuChange="statuChanged($event, entries.id)"
         ></device-switch>
       </tr>
     </table>
@@ -39,6 +41,23 @@ export default {
     appTitle,
     deviceMenu,
     deviceSwitch
+  },
+  methods: {
+    nameChanged(val, i) {
+      Object.values(this.tableContent).forEach(e =>
+        e.id == i ? (e.title = val) : (e.title = e.title)
+      );
+      Object.values(this.tableContent).forEach(e => (e.interracted = false));
+    },
+    statuChanged(val, i) {
+      Object.values(this.tableContent).forEach(e =>
+        e.id == i
+          ? e.value == "online"
+            ? (e.value = "offline")
+            : (e.value = "online")
+          : (e.value = e.value)
+      );
+    }
   }
 };
 </script>
