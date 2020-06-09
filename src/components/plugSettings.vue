@@ -53,62 +53,26 @@
       </div>
       <div class="right">
         <h2 class="device-title"> Additional Settings </h2>
-        <p> Color &amp; Brightness </p>
-        <slider-picker v-model="d['LightColor']" />
-        <p> Scenes </p>
-        <div class="custom-radio-wrapper">
-          <div class="custom-radio-button">
-            <input
-              type="radio"
-              :name="i"
-              :checked="0 == d['LightScene']"
-            >
-            <button @click="check">
-
-              READ
-            </button>
-          </div>
-          <div class="custom-radio-button">
-            <input
-              type="radio"
-              :name="i"
-              :checked="1 == d['LightScene']"
-            >
-            <button @click="check">
-
-              RELAX
-            </button>
-          </div>
-          <div class="custom-radio-button">
-            <input
-              type="radio"
-              :name="i"
-              :checked="2 == d['LightScene']"
-            >
-            <button @click="check">
-
-              ARCTIC
-            </button>
-          </div>
-          <div class="custom-radio-button">
-            <input
-              type="radio"
-              :name="i"
-              :checked="3 == d['LightScene']"
-            >
-            <button @click="check">
-
-              SPRING
-            </button>
-          </div>
-
-        </div>
+        <vue-timepicker
+          format="hh:mm:ss A"
+          auto-scroll
+          v-model="yourTimeValue"
+        >
+        </vue-timepicker>
+        <vue-timepicker
+          format="hh:mm:ss A"
+          auto-scroll
+          v-model="yourTimeValue"
+        >
+        </vue-timepicker>
       </div>
     </a>
   </section>
 </template>
 
 <script>
+import VueTimepicker from "vue2-timepicker";
+
 import { Slider } from "vue-color";
 
 export default {
@@ -117,6 +81,7 @@ export default {
     colors1: "",
     colors2: "",
     colors3: "",
+    yourTimeValue: "",
     colorsArray: []
   }),
   props: {
@@ -127,9 +92,7 @@ export default {
       type: String
     }
   },
-  components: {
-    "slider-picker": Slider
-  },
+  components: { VueTimepicker },
   methods: {
     check(e) {
       e.target.previousElementSibling.checked == true
@@ -170,6 +133,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~vue2-timepicker/dist/VueTimepicker.css";
+
 .devices-wrapper {
   overflow-y: auto;
   .devices {
@@ -402,7 +367,7 @@ export default {
       }
     }
     li {
-      a {
+      a:first-child {
         &:hover {
           background: #00e9fa;
           box-shadow: 0 0 20px rgb(0, 247, 255), 0 0 20px rgb(0, 247, 255),

@@ -30,12 +30,18 @@
           :appropriateIcon="appropriateIcon"
           :deviceVariations="deviceVariations"
         ></lightningSettings>
+        <plugSettings
+          v-if="devices == 'Plug Devices'"
+          :appropriateIcon="appropriateIcon"
+          :deviceVariations="deviceVariations"
+        ></plugSettings>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import plugSettings from "../../components/plugSettings.vue";
 import lightningSettings from "../../components/lightningSettings.vue";
 import hvacSettings from "../../components/hvacSettings.vue";
 import appDeviceSettings from "./appDeviceSettings.vue";
@@ -46,7 +52,8 @@ export default {
     Lightbox,
     appDeviceSettings,
     hvacSettings,
-    lightningSettings
+    lightningSettings,
+    plugSettings
   },
   data: () => ({
     expanded: false

@@ -340,7 +340,8 @@ export default {
       &:first-child a {
         &:hover {
           background: #e00000;
-          box-shadow: 0 0 20px #f00, 0 0 20px #f00, 0 0 20px #f00;
+          box-shadow: 0 0 20px #f00, 0 0 20px #f00, 0 0 20px #f00,
+            -50px 50px 50px rgba(0, 0, 0, 0.5);
           &::before {
             background: #e00000;
           }
@@ -356,7 +357,7 @@ export default {
         &:hover {
           background: #00e9fa;
           box-shadow: 0 0 20px rgb(0, 247, 255), 0 0 20px rgb(0, 247, 255),
-            0 0 10px rgb(0, 247, 255);
+            0 0 10px rgb(0, 247, 255), -50px 50px 50px rgba(0, 0, 0, 0.5);
           &::before {
             background: #00e9fa;
           }
@@ -372,7 +373,8 @@ export default {
         &:hover {
           background: #0f001d;
           box-shadow: 0 0 20px #000, 0 0 20px #000, 0 0 20px #000,
-            inset 0 0 20px #000, inset 0 0 20px #000, inset 0 0 20px #000;
+            inset 0 0 20px #000, inset 0 0 20px #000, inset 0 0 20px #000,
+            -50px 50px 50px rgba(0, 0, 0, 0.5);
           &::before {
             background: #0f001d;
           }
