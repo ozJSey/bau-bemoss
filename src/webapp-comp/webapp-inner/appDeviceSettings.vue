@@ -25,12 +25,18 @@
           :appropriateIcon="appropriateIcon"
           :deviceVariations="deviceVariations"
         />
+        <lightningSettings
+          v-if="devices == 'Lighting Devices'"
+          :appropriateIcon="appropriateIcon"
+          :deviceVariations="deviceVariations"
+        ></lightningSettings>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import lightningSettings from "../../components/lightningSettings.vue";
 import hvacSettings from "../../components/hvacSettings.vue";
 import appDeviceSettings from "./appDeviceSettings.vue";
 import store from "../../store/index";
@@ -39,7 +45,8 @@ export default {
   components: {
     Lightbox,
     appDeviceSettings,
-    hvacSettings
+    hvacSettings,
+    lightningSettings
   },
   data: () => ({
     expanded: false
