@@ -85,6 +85,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 header {
   font-family: "Fredoka One", cursive;
   position: absolute;
@@ -98,6 +103,10 @@ header {
     inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white,
     0px 0px 4px rgba(255, 255, 255, 0.2) !important;
   width: calc(100% - 20px);
+  @include mobile {
+    max-width: 100%;
+    overflow: hidden;
+  }
   .top-menu {
     display: flex;
     align-items: center;
@@ -116,6 +125,10 @@ header {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      opacity: 1;
+      @include mobile {
+        opacity: 0;
+      }
       .notification {
         position: relative;
         span {

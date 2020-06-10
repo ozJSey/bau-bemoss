@@ -78,6 +78,13 @@ export default {
         animationDuration: 400,
         gap: 50,
         peek: 50,
+        breakpoints: {
+          600: {
+            perView: 1,
+            gap: 10,
+            peek: 10
+          }
+        },
         autoplay: 5000,
         type: "carousel"
       }
@@ -91,6 +98,11 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 #connection {
   h2 {
     font-family: "Overlock", cursive;
@@ -99,6 +111,9 @@ export default {
     font-size: 70px;
     text-align: center;
     margin: 0;
+    @include mobile {
+      font-size: 35px;
+    }
     strong {
       font-family: "Fredoka One", cursive;
       display: block;
@@ -109,6 +124,9 @@ export default {
       line-height: 0;
       opacity: 0.9;
       transform: translateY(-10px);
+      @include mobile {
+        font-size: 20px;
+      }
     }
     &::after {
       content: "";
@@ -125,6 +143,9 @@ export default {
     }
   }
   padding: 50px 0;
+  @include mobile {
+    padding: 10px 0;
+  }
   margin-bottom: 50px;
   background-color: #ebecf0;
   .neum-wrapper {

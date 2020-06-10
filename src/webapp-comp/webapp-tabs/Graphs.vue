@@ -20,15 +20,30 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 .mw-100 {
   max-width: 100%;
+  @include mobile {
+    max-width: none;
+  }
   canvas,
   .chart {
     max-width: 100%;
+    @include mobile {
+      max-width: none;
+    }
   }
   .chart {
     padding: 20px;
     margin: 20px 0;
+    @include mobile {
+      padding: 10px;
+      margin: 10px 0;
+    }
   }
 }
 .chartAreaWrapper {

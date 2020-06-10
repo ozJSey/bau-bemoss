@@ -4,16 +4,25 @@
       <nav>
         <ul>
           <li>
-            <a href>Features</a>
+            <a
+              href="#"
+              v-scroll-to="'#features'"
+            >Features</a>
           </li>
           <li>
-            <a href>Set Up</a>
+            <a
+              href="#"
+              v-scroll-to="'#useful'"
+            >Technology</a>
           </li>
           <li>
-            <a href>Functions</a>
+            <a
+              href="#"
+              v-scroll-to="'#connection'"
+            >Communication &amp; Protocols</a>
           </li>
           <li>
-            <a href>Web App</a>
+            <router-link to="login">Web App</router-link>
           </li>
         </ul>
       </nav>
@@ -103,6 +112,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 #mainBanner {
   max-width: 100vw;
   max-height: 100vh;
@@ -115,6 +129,9 @@ export default {
   right: 92px;
   font-size: 25px;
   color: #bada55;
+  @include mobile {
+    top: 20px;
+  }
 }
 .metal {
   position: absolute;
@@ -129,6 +146,9 @@ export default {
   background-color: #565656;
 
   transition: color 0.2s;
+  @include mobile {
+    top: 60px;
+  }
   &.radial {
     width: 100px;
     height: 100px;
@@ -252,6 +272,8 @@ export default {
   height: 100vh;
   width: 100vw;
   background-color: rgba(255, 255, 255, 0.67);
+  overflow: hidden;
+  max-width: 100%;
   background-image: linear-gradient(
     245deg,
     #592ef5 20%,
@@ -276,9 +298,17 @@ export default {
     padding: 200px 100px;
     color: #592ef5;
     word-break: break-word;
+    @include mobile {
+      max-width: 100%;
+      padding: 50px 20px 0;
+      align-self: center;
+    }
     .colage {
       font-size: 100px;
       margin: 0.3em 0em 1em;
+      @include mobile {
+        font-size: 20px;
+      }
     }
     .project {
       margin-bottom: 0.3em;
@@ -347,6 +377,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-direction: row;
+    margin-top: 0;
+    @include mobile {
+      flex-direction: column;
+      opacity: 0;
+      margin-top: -200px;
+    }
     li {
       margin: 20px 20px;
       a {

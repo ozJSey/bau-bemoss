@@ -26,9 +26,19 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss">
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 .switches {
   display: flex;
   justify-content: space-around;
+  flex-direction: row;
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>

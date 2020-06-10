@@ -103,7 +103,14 @@ export default {
         gap: 50,
         peek: 0,
         autoplay: 5000,
-        type: "carousel"
+        type: "carousel",
+        breakpoints: {
+          900: {
+            perView: 1,
+            gap: 10,
+            peek: 10
+          }
+        }
       }
     };
   },
@@ -115,6 +122,11 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin mobile {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
 #features {
   font-family: "Overlock", cursive;
   max-width: 100vw;
@@ -131,6 +143,9 @@ export default {
     font-size: 70px;
     text-align: center;
     margin: 0;
+    @include mobile {
+      font-size: 35px;
+    }
     strong {
       font-family: "Fredoka One", cursive;
       display: block;
@@ -141,6 +156,9 @@ export default {
       line-height: 0;
       opacity: 0.9;
       transform: translateY(40px);
+      @include mobile {
+        font-size: 20px;
+      }
     }
     &::after {
       content: "";
@@ -175,13 +193,22 @@ export default {
         color: #bada55;
         font-family: "Fredoka One", cursive;
       }
+      @include mobile {
+        transform: perspective(0) translateY(0) rotateY(0);
+      }
       img {
         max-width: 100%;
         height: auto;
       }
       &.glide__slide--active {
         transform: perspective(600px) translateY(20px) rotateY(10deg);
+        @include mobile {
+          transform: perspective(0) translateY(0) rotateY(0);
+        }
         & + li {
+          @include mobile {
+            transform: perspective(0) translateY(0) rotateY(0);
+          }
           transform: rotateY(0) translateY(40px);
         }
       }

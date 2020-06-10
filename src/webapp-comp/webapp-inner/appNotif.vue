@@ -137,6 +137,11 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 .notifications {
   font-family: "Overlock", cursive;
   .fff {
@@ -144,6 +149,9 @@ export default {
     font-family: "Fredoke One", cursive;
   }
   padding: 30px;
+  @include mobile {
+    padding: 10px;
+  }
   .notification-header {
     display: flex;
     align-items: center;
@@ -156,6 +164,9 @@ export default {
       outline: none;
       border: 0;
       border-bottom: 1px solid gray;
+      @include mobile {
+        margin: 10px 0;
+      }
       &.expanded {
         border-bottom: 1px solid transparent;
         &::after {
@@ -183,6 +194,9 @@ export default {
     }
     .add {
       height: 35px;
+      @include mobile {
+        margin-top: 10px;
+      }
       .vdpComponent input {
         padding: 8px 5px;
         margin: 0 5px;

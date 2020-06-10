@@ -88,6 +88,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 .user-list {
   font-family: "Overlock", cursive;
   height: 50vh;
@@ -109,6 +114,9 @@ export default {
         flex: 0 0 33%;
         min-width: 150px;
         max-width: 33%;
+        @include mobile {
+          min-width: 50px;
+        }
       }
       input {
         height: 35px;

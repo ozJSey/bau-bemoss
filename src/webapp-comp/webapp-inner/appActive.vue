@@ -45,9 +45,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 .appActive {
   padding: 10px;
   max-width: 20%;
+  @include mobile {
+    max-width: 100%;
+  }
   ul {
     list-style: none;
     padding-inline-start: 0;

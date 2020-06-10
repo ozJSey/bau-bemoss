@@ -6,6 +6,9 @@ import store from './store'
 import VueGlide from 'vue-glide-js'
 import 'vue-glide-js/dist/vue-glide.css';
 import VuePageTransition from 'vue-page-transition'
+var VueScrollTo = require('vue-scrollto');
+
+Vue.use(VueScrollTo)
 Vue.use(VuePageTransition)
 import {
   FontAwesomeIcon

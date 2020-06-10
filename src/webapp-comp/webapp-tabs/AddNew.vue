@@ -110,6 +110,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 .devices-wrapper {
   margin-top: 50px;
 }
@@ -121,6 +126,10 @@ export default {
   line-height: 72px;
   margin: 0;
   font-family: "Fredoka One", cursive;
+  @include mobile {
+    font-size: 24px;
+    line-height: 36px;
+  }
   cursor: pointer;
   &::before {
     content: "";
@@ -133,6 +142,10 @@ export default {
     background-color: #6200ff;
     box-shadow: 1px 2px 10px #6200ff, 1px 2px 3px #aa76ff,
       inset 1px 2px 3px #fff, 1px -2px 5px #fff;
+    @include mobile {
+      height: 0;
+      width: 0;
+    }
   }
   &.active {
     &::before {
@@ -155,9 +168,13 @@ export default {
       display: flex;
       justify-content: space-between;
       color: #0e0025;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       margin: 10px 0;
       min-width: 300px;
+      @include mobile {
+        font-size: 1rem;
+        padding: 0 20px;
+      }
       button {
         width: 20px;
         height: 20px;

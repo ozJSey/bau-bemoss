@@ -17,6 +17,11 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 .title {
   display: block;
   max-width: 100%;
@@ -26,6 +31,10 @@ export default {
     margin: 3% 15%;
     font-size: 36px;
     font-family: "Fredoka One", cursive;
+    @include mobile {
+      font-size: 25px;
+      margin: 50px 15px;
+    }
   }
 }
 </style>

@@ -102,28 +102,30 @@ export default {
   methods: {
     scrollAnim() {
       let thisSection = document.getElementById("useful");
-      if (
-        window.pageYOffset + window.innerHeight / 2 >
-        this.$refs.stopper.offsetTop
-      ) {
-        document.getElementById("parallaxSide").removeAttribute("style");
-        document.getElementById("parallaxSide").classList.value += " passive";
-        window.removeEventListener("scroll", this.scrollAnim);
-      } else if (
-        window.pageYOffset + window.innerHeight >
-        thisSection.offsetTop
-      ) {
-        if (this.acc > 300) {
-          document.getElementById("parallaxSide").style.opacity = `1`;
-          document.getElementById(
-            "parallaxSide"
-          ).style.transform = `translateY(${this.acc}px)`;
-          this.acc -= 10;
-        } else {
-          document.getElementById(
-            "parallaxSide"
-          ).style.transform = `translateY(300px)`;
+      if (window.innerWidth > 768) {
+        if (
+          window.pageYOffset + window.innerHeight / 2 >
+          this.$refs.stopper.offsetTop
+        ) {
+          document.getElementById("parallaxSide").removeAttribute("style");
+          document.getElementById("parallaxSide").classList.value += " passive";
           window.removeEventListener("scroll", this.scrollAnim);
+        } else if (
+          window.pageYOffset + window.innerHeight >
+          thisSection.offsetTop
+        ) {
+          if (this.acc > 300) {
+            document.getElementById("parallaxSide").style.opacity = `1`;
+            document.getElementById(
+              "parallaxSide"
+            ).style.transform = `translateY(${this.acc}px)`;
+            this.acc -= 10;
+          } else {
+            document.getElementById(
+              "parallaxSide"
+            ).style.transform = `translateY(300px)`;
+            window.removeEventListener("scroll", this.scrollAnim);
+          }
         }
       }
     }
@@ -135,6 +137,11 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 #useful {
   font-family: "Overlock", cursive;
   .container:hover strong {
@@ -142,6 +149,9 @@ export default {
   }
   .container {
     padding: 50px 0 0;
+    @include mobile {
+      padding: 20px 0 0;
+    }
     h2 {
       color: #6200ff;
       transition: all 0.5s;
@@ -149,6 +159,9 @@ export default {
       font-size: 70px;
       text-align: center;
       margin: 0;
+      @include mobile {
+        font-size: 35px;
+      }
       strong {
         font-family: "Fredoka One", cursive;
         display: block;
@@ -159,6 +172,9 @@ export default {
         line-height: 0;
         opacity: 0.9;
         transform: translateY(40px);
+        @include mobile {
+          font-size: 20px;
+        }
       }
       &::after {
         content: "";
@@ -186,15 +202,28 @@ export default {
     }
     .content-wrapper {
       padding: 100px;
+      @include mobile {
+        padding: 20px 15px;
+        flex-direction: column;
+      }
       display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
       p {
         margin: 50px 0;
+        @include mobile {
+          margin: 20px 0;
+        }
       }
       .content {
         flex: 1 1 44%;
         margin: 3%;
         max-width: 44%;
+        @include mobile {
+          flex: 1 1 100%;
+          margin-top: 50px;
+          max-width: 100%;
+        }
         &.pt-180 {
           display: flex;
           flex-wrap: wrap;
@@ -207,12 +236,21 @@ export default {
             align-self: flex-start;
             text-align: center;
             width: calc(50% - 40px);
+            @include mobile {
+              width: 100%;
+            }
           }
         }
       }
       .side-content {
         transform: translateY(1500px);
         flex: 1 1 44%;
+        @include mobile {
+          flex: 1 1 100%;
+          max-width: 100%;
+          transform: translateY(0);
+          opacity: 1;
+        }
         opacity: 0;
         transition: transform 0.6s, opacity 1s;
         margin: 3%;
@@ -220,6 +258,9 @@ export default {
         &.passive {
           opacity: 1;
           transform: translateY(300px);
+          @include mobile {
+            transform: translateY(0);
+          }
         }
       }
     }

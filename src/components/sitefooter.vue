@@ -3,7 +3,7 @@
     <p>
       All rights are reserved by the rightful owners
       <a href="http://www.bemoss.org/">BEMOSS™</a> Virginia Tech Faculty.
-      <code>This website is avilable to be forked if requested. I am willing to contribute.</code>
+      <code>This website is avilable for pull-requests if asked. I am willing to contribute.</code>
     </p>
     <p>This website is purely for the utility of our capstone(graduation) project, which aims to utilize the system and willing to integrate it within our faculty.</p>
   </footer>
@@ -14,10 +14,24 @@ export default {};
 </script>
 
 <style lang="scss">
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 footer {
   font-family: "Overlock", cursive;
   color: white;
   padding: 50px;
+  @include mobile {
+    padding: 30px 16px;
+    p {
+      font-size: 14px;
+    }
+    code {
+      font-size: 12px;
+    }
+  }
   background: #6200ff;
   a {
     color: #bada55;
