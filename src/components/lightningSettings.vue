@@ -56,6 +56,24 @@
         <h2 class="device-title"> Additional Settings </h2>
         <p> Color &amp; Brightness </p>
         <slider-picker v-model="d['LightColor']" />
+        <p>Brightness</p>
+        <range-slider
+          value
+          tooltip
+          class="slider"
+          min="0"
+          max="100"
+          v-model="d['LightBrightness']"
+        >
+          <template
+            slot="tooltip"
+            :scope="d['LightBrightness']"
+          >
+            <div class="diy-tooltip">
+              {{ d['LightBrightness'] }}
+            </div>
+          </template>
+        </range-slider>
         <p class="mt-50"> Scenes </p>
         <div class="custom-radio-wrapper">
           <div class="custom-radio-button">
@@ -111,6 +129,8 @@
 
 <script>
 import { Slider } from "vue-color";
+import RangeSlider from "vue-range-slider";
+import "vue-range-slider/dist/vue-range-slider.css";
 
 export default {
   data: () => ({
@@ -129,7 +149,8 @@ export default {
     }
   },
   components: {
-    "slider-picker": Slider
+    "slider-picker": Slider,
+    RangeSlider
   },
   methods: {
     check(e) {
@@ -371,6 +392,16 @@ export default {
         width: 20px;
       }
     }
+  }
+}
+.range-slider {
+  width: 92%;
+  padding: 0;
+  .range-slider-rail {
+    background-color: #222 !important;
+  }
+  .range-slider-fill {
+    background-color: #ffe65b !important;
   }
 }
 .cube {
