@@ -144,12 +144,20 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 aside {
   font-family: "Fredoka One", cursive;
   position: absolute;
   transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   top: 105px;
   left: 10px;
+  @include mobile {
+    left: -10px;
+  }
   border-radius: 10px;
   width: initial;
   display: block;
@@ -190,6 +198,9 @@ aside {
       padding: 20px 20px 0;
       margin: 0;
       height: calc(96vh - 169px);
+      @include mobile {
+        margin: 0 0 0 5px;
+      }
       li {
         position: relative;
         width: 100%;

@@ -24,10 +24,19 @@ export default {
 };
 </script>
 <style lang="scss">
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 #webapp {
   position: absolute;
   top: 105px;
   left: 100px;
+  @include mobile {
+    left: 80px;
+    width: calc(100% - 90px);
+  }
   background-color: #fefefe;
   box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white,
     inset 0px 0px 4px rgba(255, 255, 255, 0),

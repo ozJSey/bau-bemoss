@@ -170,6 +170,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 .devices-wrapper {
   overflow-y: auto;
   .devices {
@@ -177,6 +182,19 @@ export default {
     margin: 20px auto;
     padding: 10px 0 20px;
     border-bottom: 1px solid #6200ff;
+    @include mobile {
+      flex-direction: column;
+      * {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        max-width: 100% !important;
+      }
+    }
+    flex-direction: row;
+    * {
+      flex-direction: row;
+    }
     .left {
       flex: 0 0 50%;
       display: block;

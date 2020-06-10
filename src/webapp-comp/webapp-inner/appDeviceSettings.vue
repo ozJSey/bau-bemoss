@@ -120,6 +120,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 .devices-wrapper {
   font-family: "Overlock", cursive;
   width: 100%;
@@ -140,6 +145,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include mobile {
+      margin: 0 10px;
+    }
     p {
       margin: 10px 0;
     }
@@ -170,6 +178,10 @@ export default {
       overflow: auto;
       margin: 10px 30px 10px;
       padding: 20px;
+      @include mobile {
+        margin: 0 10px;
+        padding: 10px;
+      }
     }
     &:last-child {
       &.expanded {
