@@ -3,7 +3,7 @@
     <appTitle :message="title"></appTitle>
     <table class="table-inner">
       <tr
-        @click="entries.interracted = true"
+        @click.capture="entries.interracted = true"
         v-for="entries in tableContent"
         :key="entries.id"
       >
@@ -15,7 +15,8 @@
           @changed="nameChanged($event , entries.id)"
           :deviceName="entries.title"
           :visible="entries.interracted"
-          @statuChange="statuChanged($event, entries.id)"
+          @done="checked()"
+          @statusChanged="statuChanged($event, entries.id)"
         ></device-switch>
       </tr>
     </table>
@@ -49,15 +50,17 @@ export default {
       );
       Object.values(this.tableContent).forEach(e => (e.interracted = false));
     },
+    checked(a){
+      Object.values(this.tableContent).forEach(e => (e.interracted = a));
+    },
     statuChanged(val, i) {
-      Object.values(this.tableContent).forEach(e =>
-        e.id == i
-          ? e.value == "online"
-            ? (e.value = "offline")
-            : (e.value = "online")
-          : (e.value = e.value)
+      Object.values(this.tableContent).forEach((e)=>{
+        if(e.id == i){
+            e.value == 'online' ? e.value = 'offline' : e.value = 'online';
+        }
+        }
       );
-    }
+  }
   }
 };
 </script>

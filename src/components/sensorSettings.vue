@@ -54,36 +54,28 @@
       <div class="right">
         <h2 class="device-title"> Additional Settings </h2>
         <div class="time-pickers">
-          <div class="timer">
-            <p>Switch Off Time</p>
-            <vue-timepicker
-              format="hh:mm A"
-              auto-scroll
-              v-model="d['SwitchOffTime']"
-            >
-            </vue-timepicker>
-            <button @click="revealTimer">
-              <div class="clock">
-                <div class="minutes"></div>
-                <div class="hours"></div>
-              </div>
-              <span @click="revealSibling">Set Timer</span>
+          <div
+            :class="{'shake' : d['PresenceDetected']}"
+            class="timer"
+          >
+            <p v-if="d['PresenceDetected']">Presentece Detected</p>
+            <p v-else>Presence Undetected</p>
+            Turn On Enterence Light
+            <button @click="d['PresenceDetected'] = false">
+              <p v-if="d['PresenceDetected']">Remove Action</p>
+              <p v-else>Set Action</p>
             </button>
           </div>
-          <div class="timer">
-            <p>Switch On Time</p>
-            <vue-timepicker
-              format="hh:mm A"
-              auto-scroll
-              v-model="d['SwitchOnTime']"
-            >
-            </vue-timepicker>
-            <button @click="revealTimer">
-              <div class="clock">
-                <div class="minutes"></div>
-                <div class="hours"></div>
-              </div>
-              <span @click="revealSibling">Set Timer</span>
+          <div
+            class="timer"
+            :class="{'shake' : d['PresenceUnDetected']}"
+          >
+            <p v-if="d['PresenceUnDetected']">Presentece Detected</p>
+            <p v-else>Presence Undetected</p>
+            Turn Off Enterence Light
+            <button @click="d['PresenceUnDetected'] = false ">
+              <p v-if="d['PresenceUnDetected']">Remove Action</p>
+              <p v-else>Set Action</p>
             </button>
           </div>
         </div>
@@ -188,6 +180,13 @@ export default {
         align-items: center;
         justify-content: space-around;
         .timer {
+          &.shake {
+            animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+          }
+
           text-align: center;
           box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15),
             -7px -7px 20px rgba(255, 255, 255, 1),
@@ -437,62 +436,26 @@ export default {
     transform: rotate(0deg) skewX(-45deg);
   }
 }
-.clock {
-  display: none;
-  position: absolute;
-  position: relative;
-  width: 50px;
-  height: 50px;
-  border-radius: 30px;
-  border: solid 5px white;
-  transition: all 0.4s;
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
 
-  .hours {
-    position: absolute;
-    width: 50px;
-    height: 5px;
-    // background: red;
-    top: 15.5px;
-    left: -5px;
-    -webkit-animation: you-spin-me-round-round-baby-right-round 10s linear 0s
-      infinite;
-    &:before {
-      content: "";
-      height: 5px;
-      width: 16px;
-      position: absolute;
-      right: 11px;
-      background: white;
-      border-radius: 5px;
-    }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
   }
-  .minutes {
-    position: absolute;
-    width: 50px;
-    height: 5px;
-    // background: blue;
-    top: 16.5px;
-    left: -4.5px;
-    -webkit-animation: you-spin-me-round-round-baby-right-round 1s linear 0s
-      infinite;
 
-    &:before {
-      content: "";
-      height: 5px;
-      width: 22px;
-      position: absolute;
-      right: 5px;
-      background: white;
-      border-radius: 5px;
-    }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
   }
-}
-@-webkit-keyframes you-spin-me-round-round-baby-right-round {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
   }
 }
 </style>

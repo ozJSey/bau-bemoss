@@ -11,9 +11,12 @@
     <div
       @click="statuChange"
       class="active"
-      :class="{' switched' : ds}"
+      :class="{' switched' : changeStatus}"
     >
     </div>
+    <button @click="$emit('done', false)">
+      <font-awesome-icon icon="check" ></font-awesome-icon>
+    </button>
   </section>
 </template>
 
@@ -21,7 +24,7 @@
 export default {
   data: () => ({
     storeNewName: "",
-    storeNewStatus: false
+    storeNewStatus: false,
   }),
   computed: {
     dn: {
@@ -32,14 +35,9 @@ export default {
         this.storeNewName = value;
       }
     },
-    ds: {
-      get() {
-        return this.interracted;
-      },
-      set(value) {
-        this.storeNewStatus = value;
-      }
-    }
+  },
+  mounted(){
+    this.changeStatus = this.interracted;
   },
   props: {
     interracted: {
@@ -60,8 +58,8 @@ export default {
       this.$emit("changed", this.storeNewName);
     },
     statuChange() {
-      this.ds = !this.ds;
-      this.$emit("statusChanged");
+      this.changeStatus = !this.changeStatus
+      this.$emit("statusChanged", this.changeStatus);
     }
   }
 };
@@ -117,6 +115,16 @@ export default {
       color: #000;
       font-family: "Overlock", cursive;
     }
+  }
+  button{
+    position: absolute;
+    right: -25px;
+    color: white;
+    background-color: #bada55;
+    border-radius: 3px;
+    border: 1px solid white;
+    top: 10px;
+    z-index: 1;
   }
 }
 </style>

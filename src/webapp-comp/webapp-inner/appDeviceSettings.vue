@@ -35,12 +35,18 @@
           :appropriateIcon="appropriateIcon"
           :deviceVariations="deviceVariations"
         ></plugSettings>
+        <sensor-settings
+          v-if="devices == 'Sensor Devices'"
+          :appropriateIcon="appropriateIcon"
+          :deviceVariations="deviceVariations"
+        ></sensor-settings>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import sensorSettings from "@/components/sensorSettings";
 import plugSettings from "../../components/plugSettings.vue";
 import lightningSettings from "../../components/lightningSettings.vue";
 import hvacSettings from "../../components/hvacSettings.vue";
@@ -52,6 +58,7 @@ export default {
     Lightbox,
     appDeviceSettings,
     hvacSettings,
+    sensorSettings,
     lightningSettings,
     plugSettings
   },

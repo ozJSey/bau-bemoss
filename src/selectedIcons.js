@@ -19,6 +19,8 @@ import { faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFan } from '@fortawesome/free-solid-svg-icons';
 import { faPlug } from '@fortawesome/free-solid-svg-icons';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
 library.add(faBug);
 library.add(faAlignRight);
 library.add(faBoxes);
@@ -41,3 +43,4 @@ library.add(faShieldAlt);
 library.add(faFan);
 library.add(faPlug);
 library.add(faLightbulb);
+library.add(faCheck);

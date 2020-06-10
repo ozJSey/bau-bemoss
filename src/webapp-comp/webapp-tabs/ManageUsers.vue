@@ -10,7 +10,7 @@
           <span> {{u.name}} </span>
           <input
             :type="u.reveal ? 'text' : 'password'"
-            :value="u.password"
+            v-model="u.password"
             name=""
             id=""
             :disabled="!u.editable"
