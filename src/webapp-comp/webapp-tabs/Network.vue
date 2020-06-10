@@ -21,7 +21,7 @@ export default {
       lan2: {
         id: 2,
         title: "Asus RT-AC68R",
-        value: "offline",
+        value: "online",
         setupIn: "CR-2",
         ipAddress: "192.168.1.131",
         interracted: false
@@ -37,7 +37,7 @@ export default {
       lan4: {
         id: 4,
         title: "Lynsys WRT610N",
-        value: "offline",
+        value: "online",
         setupIn: "Kitchen",
         ipAddress: "192.168.1.133",
         interracted: false

@@ -11,10 +11,21 @@
 </template>
 
 <script>
-import store from '../src/store/index';
+import firebase from "firebase";
+firebase.initializeApp({
+  apiKey: "AIzaSyBZG0FyBL_7ken77zLG1I1iogOs6C0Q8I8",
+  authDomain: "bemoss-e8288.firebaseapp.com",
+  databaseURL: "https://bemoss-e8288.firebaseio.com",
+  projectId: "bemoss-e8288",
+  storageBucket: "bemoss-e8288.appspot.com",
+  messagingSenderId: "865894909056",
+  appId: "1:865894909056:web:9f9340309bcf401c809265",
+  measurementId: "G-TVGXQ8D9ZG"
+});
+import store from "../src/store/index";
 export default {
   store
-}
+};
 </script>
 
 <style lang="scss">

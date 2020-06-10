@@ -12,6 +12,7 @@ export default new Vuex.Store({
       "AC was closed yesterday at 1AM as requested.",
       "Thermosthat values reports are prepared"
     ],
+    userType: '',
     bulbs: [
       { id: 1, name: "Hall", status: true },
       { id: 2, name: "Kitchen", status: false },
@@ -57,6 +58,9 @@ export default new Vuex.Store({
     },
     addNotif(state, value) {
       this.state.notifications = value;
+    },
+    setUser(state, value) {
+      this.state.userType = value;
     }
   },
   actions: {

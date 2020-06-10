@@ -39,10 +39,11 @@
             class="icons"
             icon="user"
           ></font-awesome-icon>
-          {{ user }}
+          {{userType}}
         </a>
         <router-link
           to="/login"
+          @click="auth.signOut()"
           class="logout"
         >
           <font-awesome-icon
@@ -57,7 +58,10 @@
 </template>
 
 <script>
+import firebase from "firebase";
 import store from "../store";
+import Router from "../router/index";
+const auth = firebase.auth();
 
 export default {
   data: () => ({
@@ -68,6 +72,9 @@ export default {
   computed: {
     notification() {
       return store.state.notifications;
+    },
+    userType() {
+      return store.state.userType;
     }
   },
   methods: {

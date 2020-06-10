@@ -65,7 +65,7 @@
             </transition>
           </router-link>
         </li>
-        <li>
+        <li v-if="userType == 'admin@baubemoss.com'">
           <router-link to="/webapp/users">
             <transition name="slide-fade">
               <div v-if="!collapsed">
@@ -83,7 +83,7 @@
           <router-link to="/webapp/manage">
             <transition name="slide-fade">
               <div v-if="!collapsed">
-                Misc Settings
+                Manage
               </div>
               <font-awesome-icon
                 v-else
@@ -127,6 +127,7 @@
 </template>
 
 <script>
+import store from "../store/index";
 export default {
   data: () => ({
     collapsed: true
@@ -138,6 +139,11 @@ export default {
         : (this.$el.style.width = "250px");
       this.collapsed = !this.collapsed;
       this.$emit("expander");
+    }
+  },
+  computed: {
+    userType() {
+      return store.state.userType;
     }
   }
 };

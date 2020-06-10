@@ -4,7 +4,8 @@
     <div class="login-page">
 
       <form
-        @submit.prevent="loginUser"
+        @submit.prevent="signIn"
+        id="signIn"
         class="login-form"
         action="#"
       >
@@ -12,12 +13,12 @@
           <label
             ref="userLabel"
             for="name"
-          >Username</label>
+          >E-mail</label>
           <input
             @blur="blurUsernameLabel"
             @focus="moveUsernameLabel"
             type="text"
-            v-model="username"
+            v-model="email"
           />
         </fieldset>
         <fieldset>
@@ -48,13 +49,27 @@
 </template>
 
 <script>
+import Router from "../router/index";
+import firebase from "firebase";
+import store from "../store/index";
+
+const auth = firebase.auth();
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    var email = user.email;
+    store.commit("setUser", user.email);
+    Router.push("WebApp");
+  } else {
+    console.log("it wasn't perfect");
+  }
+});
 import appTitle from "../webapp-comp/webapp-inner/appTitle.vue";
 export default {
   components: {
     appTitle
   },
   data: () => ({
-    username: "",
+    email: "",
     password: "",
     userList: [],
     error: ""
@@ -65,6 +80,10 @@ export default {
     }
   },
   methods: {
+    signOut() {
+      auth.signOut();
+      alert("Signed Out");
+    },
     loginUser() {
       switch (this.username.toLowerCase()) {
         case "admin":
@@ -87,6 +106,25 @@ export default {
           break;
       }
     },
+    signIn() {
+      auth.signOut();
+      var email = this.email;
+      var password = this.password;
+      const promise = auth.signInWithEmailAndPassword(email, password);
+      promise.catch(e => alert(e));
+    },
+    signUp() {
+      var email = document.getElementById("email");
+      var password = document.getElementById("password");
+
+      const promise = auth.createUserWithEmailAndPassword(
+        email.value,
+        password.value
+      );
+      promise.catch(e => alert(e.message));
+
+      alert("Signed Up");
+    },
     movePasswordLabel() {
       this.$refs.passwordLabel.style.cssText =
         "top: -17px; left: 0; font-size: 12px";
@@ -103,7 +141,7 @@ export default {
         "top: -17px; left: 0; font-size: 12px";
     },
     blurUsernameLabel() {
-      this.username.length > 0
+      this.email.length > 0
         ? (this.$refs.userLabel.style.cssText =
             "top: -17px; left: 0; font-size: 12px")
         : (this.$refs.userLabel.style.cssText =
