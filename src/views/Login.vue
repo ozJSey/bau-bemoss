@@ -58,7 +58,7 @@ auth.onAuthStateChanged(function(user) {
   if (user) {
     var email = user.email;
     store.commit("setUser", user.email);
-    Router.push("WebApp");
+    Router.push("webapp");
   } else {
     console.log("it wasn't perfect");
   }
@@ -88,19 +88,19 @@ export default {
       switch (this.username.toLowerCase()) {
         case "admin":
           this.password == "bemossadmin"
-            ? this.$router.push("WebApp")
+            ? this.$router.push("webapp")
             : (this.error = "Your id or password is incorrect");
           break;
         case "manager":
           this.password == "bemossadmin"
-            ? this.$router.push("WebApp")
+            ? this.$router.push("webapp")
             : (this.error = "Your id or password is incorrect");
           break;
         default:
           // if (this.userList.includes(this.username)) {
           // let index = this.userList.indexOf(this.username);
           // this.password == this.userList[index].password
-          //   ? this.$router.push("WebApp")
+          //   ? this.$router.push("webapp")
           this.error = "Your id or password is incorrect";
           // }
           break;
