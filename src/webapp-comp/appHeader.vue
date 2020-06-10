@@ -87,6 +87,11 @@ export default {
     notification(newValue, oldValue) {
       this.seen = false;
     }
+  },
+  mounted() {
+    if (this.userType == "") {
+      this.$router.push("/login");
+    }
   }
 };
 </script>

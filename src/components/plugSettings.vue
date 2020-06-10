@@ -12,6 +12,7 @@
           class="Icon"
           :icon="appropriateIcon"
         ></font-awesome-icon> Status: {{d['DeviceStatus'] == true ? 'ON' : 'OFF'}}
+        <p> {{d['DeviceLocation']}} </p>
         <div class="showtime">
           <div class="cube">
             <ul :class="d['DeviceStatus'] == true ? 'listing1' : 'listing2'">

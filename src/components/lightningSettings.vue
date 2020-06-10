@@ -12,6 +12,7 @@
           class="Icon"
           :icon="appropriateIcon"
         ></font-awesome-icon> Status: {{d['DeviceStatus'] == true ? 'ON' : 'OFF'}}
+        <p> {{d['DeviceLocation']}} </p>
         <div class="showtime">
           <div class="cube">
             <ul :class="d['DeviceStatus'] == true ? 'listing1' : 'listing2'">
@@ -55,7 +56,7 @@
         <h2 class="device-title"> Additional Settings </h2>
         <p> Color &amp; Brightness </p>
         <slider-picker v-model="d['LightColor']" />
-        <p> Scenes </p>
+        <p class="mt-50"> Scenes </p>
         <div class="custom-radio-wrapper">
           <div class="custom-radio-button">
             <input
@@ -204,6 +205,9 @@ export default {
       flex: 0 0 50%;
       display: block;
       max-width: 50%;
+      .mt-50 {
+        margin: 70px 0 0;
+      }
       .custom-radio-wrapper {
         display: flex;
         .custom-radio-button {

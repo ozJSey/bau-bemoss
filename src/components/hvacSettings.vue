@@ -12,6 +12,7 @@
           class="Icon"
           :icon="appropriateIcon"
         ></font-awesome-icon> Status: {{d['DeviceStatus'] == true ? 'ON' : 'OFF'}}
+        <p> {{d['DeviceLocation']}} </p>
         <p> Indoor temperature : {{d.IndoorTemperature}}&#8451;</p>
 
         <div class="allow-override">
@@ -97,7 +98,11 @@
 </template>
 
 <script>
+import plugSettings from "./plugSettings.vue";
 export default {
+  components: {
+    plugSettings
+  },
   props: {
     deviceVariations: {
       type: Object
@@ -176,7 +181,7 @@ export default {
       flex: 0 0 50%;
       display: block;
       .allow-override {
-        margin-top: 38px;
+        margin-top: 71px;
       }
       .setters {
         display: flex;
